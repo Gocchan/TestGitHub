@@ -2,8 +2,10 @@ package com.gocchan.testgithub;
 
 public class TestGithub {
 
-	// atsushi-PC
-
+	public static void main(String args[]) {
+		// atsushi-PC
+		System.out.println("Hello~");
+	}
 }
 
 

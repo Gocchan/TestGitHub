@@ -2,7 +2,7 @@ package com.gocchan.testgithub;
 
 public class TestGithub {
 
-	// atsushi-PC
+	// NC10
 
 }
 

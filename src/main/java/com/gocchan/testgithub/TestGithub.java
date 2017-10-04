@@ -2,8 +2,8 @@ package com.gocchan.testgithub;
 
 public class TestGithub {
 
-	// TEST
-	// NC10
+	// atsushi-PC
+
 }
 
 

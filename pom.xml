@@ -11,6 +11,16 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
+
+    <archive>
+      <manifest>
+        <mainClass>TestGithub.main</mainClass>
+        <addClasspath>true</addClasspath>
+        <addExtensions>true</addExtensions>
+        <classpathPrefix>lib/</classpathPrefix>
+      </manifest>
+    </archive>
+
         </configuration>
       </plugin>
     </plugins>

@@ -10,11 +10,12 @@ public class TestGithub {
 
 	public static void main(String args[]) {
 
-
+		//System.setProperty("file.encoding", "UTF-8");
 		getInput();
 	}
 
 	private static void getInput() {
+
 
 		String str = null;
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

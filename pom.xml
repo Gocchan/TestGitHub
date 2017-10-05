@@ -3,39 +3,4 @@
   <groupId>com.gocchan</groupId>
   <artifactId>TestGithub</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-    <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-
-    <archive>
-      <manifest>
-        <mainClass>TestGithub.main</mainClass>
-        <addClasspath>true</addClasspath>
-        <addExtensions>true</addExtensions>
-        <classpathPrefix>lib/</classpathPrefix>
-      </manifest>
-    </archive>
-
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-    <repositories>
-    <repository>
-      <id>bukkit-repo</id>
-      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-    </repository>
-  </repositories>
-    <dependencies>
-    <dependency>
-      <groupId>org.spigotmc</groupId>
-      <artifactId>spigot-api</artifactId>
-      <version>1.11.2-R0.1-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
 </project>

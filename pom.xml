@@ -3,4 +3,21 @@
   <groupId>com.gocchan</groupId>
   <artifactId>TestGithub</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>2.3.1</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <addClasspath>true</addClasspath>
+            <mainClass>com.gocchan.testgithub.TestGithub</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
 </project>

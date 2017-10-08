@@ -19,7 +19,7 @@ public class TestGinput {
 	    		System.out.println("### Ended ###");
 	    	} else {
 	    		//System.out.println("input: '" + str + "'");
-	    		TestJapanese.toKana();
+
 	    		System.out.println("input: '" + changeLine(str) + "'");
 	    		getInput();
 	    	}
@@ -43,7 +43,7 @@ public class TestGinput {
 		} else if(isURL(str) || isEmail(str)) {
 			return "URL:" + str;
 		}
-		return "(" + str + ")";
+		return "("+ TestJapanese.toKana(str) + ")";
 
 	}
 

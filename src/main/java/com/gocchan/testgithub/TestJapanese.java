@@ -1,6 +1,5 @@
 package com.gocchan.testgithub;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,33 +7,40 @@ import java.util.Map;
 
 public class TestJapanese {
 
-	private static final ArrayList<String> BOIN =
-			new ArrayList<String>(Arrays.asList("a", "i", "u", "e", "o"));
+	private static final List<String> BOIN = Arrays.asList("a","i","u","e","o");
+
+    private static final Map<String, List<String>> ROMAN_0 = new HashMap<String, List<String>>() {
+    	{
+    		put("", Arrays.asList("あ", "い", "う", "え", "お"));
+    	}
+    };
 
     private static final Map<String, List<String>> ROMAN_1 = new HashMap<String, List<String>>() {
-    	{put("k", Arrays.asList("か", "き", "く", "け", "こ"));}
-    	{put("g", Arrays.asList("が", "ぎ", "ぐ", "げ", "ご"));}
-    	{put("s", Arrays.asList("さ", "し", "す", "せ", "そ"));}
-    	{put("z", Arrays.asList("ざ", "じ", "ず", "ぜ", "ぞ"));}
-    	{put("t", Arrays.asList("た", "ち", "つ", "て", "と"));}
-    	{put("d", Arrays.asList("だ", "ぢ", "づ", "で", "ど"));}
-    	{put("n", Arrays.asList("な", "に", "ぬ", "ね", "の"));}
-    	{put("h", Arrays.asList("は", "ひ", "ふ", "へ", "ほ"));}
-    	{put("b", Arrays.asList("ば", "び", "ぶ", "べ", "ぼ"));}
-    	{put("p", Arrays.asList("ぱ", "ぴ", "ぷ", "ぺ", "ぽ"));}
-    	{put("m", Arrays.asList("ま", "み", "む", "め", "も"));}
-    	{put("y", Arrays.asList("や", "い", "ゆ", "いぇ", "よ"));}
-    	{put("r", Arrays.asList("ら", "り", "る", "れ", "ろ"));}
-    	{put("w", Arrays.asList("わ", "うぃ", "う", "うぇ", "を"));}
-    	{put("j", Arrays.asList("じゃ", "じ", "じゅ", "じぇ", "じょ"));}
-    	{put("f", Arrays.asList("ふぁ", "ふぃ", "ふ", "ふぇ", "ふぉ"));}
-    	{put("x", Arrays.asList("ぁ", "ぃ", "ぅ", "ぇ", "ぉ"));}
-    	{put("v", Arrays.asList("ゔぁ", "ゔぃ", "ゔ", "ゔぇ", "ゔぉ"));}
-    	{put("q", Arrays.asList("くぁ", "くぃ", "く", "くぇ", "くぉ"));}
-    	{put("t’", Arrays.asList("", "てぃ", "とぅ", "", ""));}
-    	{put("d’", Arrays.asList("", "でぃ", "どぅ", "", ""));}
-    	{put("l", Arrays.asList("ぁ", "ぃ", "ぅ" , "ぇ" , "ぉ"));}
-    	{put("c", Arrays.asList("か", "し", "く", "せ", "こ"));}
+    	{
+    		put("k", Arrays.asList("か", "き", "く", "け", "こ"));
+    		put("g", Arrays.asList("が", "ぎ", "ぐ", "げ", "ご"));
+    		put("s", Arrays.asList("さ", "し", "す", "せ", "そ"));
+    		put("z", Arrays.asList("ざ", "じ", "ず", "ぜ", "ぞ"));
+    		put("t", Arrays.asList("た", "ち", "つ", "て", "と"));
+    		put("d", Arrays.asList("だ", "ぢ", "づ", "で", "ど"));
+    		put("n", Arrays.asList("な", "に", "ぬ", "ね", "の"));
+    		put("h", Arrays.asList("は", "ひ", "ふ", "へ", "ほ"));
+    		put("b", Arrays.asList("ば", "び", "ぶ", "べ", "ぼ"));
+    		put("p", Arrays.asList("ぱ", "ぴ", "ぷ", "ぺ", "ぽ"));
+    		put("m", Arrays.asList("ま", "み", "む", "め", "も"));
+    		put("y", Arrays.asList("や", "い", "ゆ", "いぇ", "よ"));
+    		put("r", Arrays.asList("ら", "り", "る", "れ", "ろ"));
+    		put("w", Arrays.asList("わ", "うぃ", "う", "うぇ", "を"));
+    		put("j", Arrays.asList("じゃ", "じ", "じゅ", "じぇ", "じょ"));
+    		put("f", Arrays.asList("ふぁ", "ふぃ", "ふ", "ふぇ", "ふぉ"));
+    		put("x", Arrays.asList("ぁ", "ぃ", "ぅ", "ぇ", "ぉ"));
+    		put("v", Arrays.asList("ゔぁ", "ゔぃ", "ゔ", "ゔぇ", "ゔぉ"));
+    		put("q", Arrays.asList("くぁ", "くぃ", "く", "くぇ", "くぉ"));
+    		put("t’", Arrays.asList("", "てぃ", "とぅ", "", ""));
+    		put("d’", Arrays.asList("", "でぃ", "どぅ", "", ""));
+    		put("l", Arrays.asList("ぁ", "ぃ", "ぅ" , "ぇ" , "ぉ"));
+    		put("c", Arrays.asList("か", "し", "く", "せ", "こ"));
+    	}
     };
 
     private static final Map<String, List<String>> ROMAN_2 = new HashMap<String, List<String>>() {
@@ -91,6 +97,8 @@ public class TestJapanese {
 
     private static Map<String, List<String>> ROMAN(int i) {
     	switch(i) {
+			case 0:
+				return ROMAN_0;
     		case 1:
     			return ROMAN_1;
     		case 2:
@@ -102,13 +110,42 @@ public class TestJapanese {
     	}
     }
 
-    public static void toKana() {
+    public static String toKana(String in) {
 
-    	String key = "sw";
+		String out = "";
+		String now;
+		String buf = "";
+		int cnt = 0;
 
-    	if(ROMAN(2).containsKey(key)) {
-    		System.out.println("*" + ROMAN(2).get(key).get(BOIN.indexOf("o")) + "*");
-    	}
+		for(int i = 0; i < in.length(); i++) {
+
+			now = in.substring(i,i+1); // i文字目から1文字
+
+			System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now);
+			if(BOIN.contains(now)) {
+
+				if(ROMAN(cnt).containsKey(buf)) {
+
+
+					//out = ROMAN(1).get("m").get(BOIN.indexOf("e"));
+
+					out += ROMAN(cnt).get(buf).get(BOIN.indexOf(now));
+
+					cnt = 0;
+					buf = "";
+				}
+
+			} else {
+				buf += now;
+				cnt++;
+
+
+
+
+			}
+		}
+
+		return out;
+
     }
-
 }

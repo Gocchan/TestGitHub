@@ -19,6 +19,7 @@ public class TestGinput {
 	    		System.out.println("### Ended ###");
 	    	} else {
 	    		//System.out.println("input: '" + str + "'");
+	    		TestJapanese.toKana();
 	    		System.out.println("input: '" + changeLine(str) + "'");
 	    		getInput();
 	    	}

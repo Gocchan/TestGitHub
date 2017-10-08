@@ -8,10 +8,10 @@ import java.util.Map;
 
 public class TestJapanese {
 
-	private static final ArrayList<String> AIUEO =
+	private static final ArrayList<String> BOIN =
 			new ArrayList<String>(Arrays.asList("a", "i", "u", "e", "o"));
 
-    private static final Map<String, List<String>> ROMAN_1 = new HashMap<String, List<String>>(){
+    private static final Map<String, List<String>> ROMAN_1 = new HashMap<String, List<String>>() {
     	{put("k", Arrays.asList("か", "き", "く", "け", "こ"));}
     	{put("g", Arrays.asList("が", "ぎ", "ぐ", "げ", "ご"));}
     	{put("s", Arrays.asList("さ", "し", "す", "せ", "そ"));}
@@ -37,7 +37,7 @@ public class TestJapanese {
     	{put("c", Arrays.asList("か", "し", "く", "せ", "こ"));}
     };
 
-    private static final Map<String, List<String>> ROMAN_2 = new HashMap<String, List<String>>(){
+    private static final Map<String, List<String>> ROMAN_2 = new HashMap<String, List<String>>() {
     	{put("wy", Arrays.asList("", "ゐ", "", "ゑ", ""));}
     	{put("ky", Arrays.asList("きゃ", "きぃ", "きゅ", "きぇ", "きょ"));}
     	{put("gy", Arrays.asList("ぎゃ", "ぎぃ", "ぎゅ", "ぎぇ", "ぎょ"));}
@@ -81,7 +81,7 @@ public class TestJapanese {
     	{put("qy", Arrays.asList("くゃ", "くぃ", "くゅ", "くぇ", "くょ"));}
     };
 
-    private static final Map<String, List<String>> ROMAN_3 = new HashMap<String, List<String>>(){
+    private static final Map<String, List<String>> ROMAN_3 = new HashMap<String, List<String>>() {
     	{put("hwy", Arrays.asList("", "", "ふゅ", "", ""));}
     	{put("xts", Arrays.asList("", "", "っ", "", ""));}
     	{put("lts", Arrays.asList("", "", "っ", "", ""));}
@@ -89,17 +89,26 @@ public class TestJapanese {
     	{put("d’y", Arrays.asList("", "", "でゅ", "", ""));}
     };
 
+    private static Map<String, List<String>> ROMAN(int i) {
+    	switch(i) {
+    		case 1:
+    			return ROMAN_1;
+    		case 2:
+    			return ROMAN_2;
+    		case 3:
+    			return ROMAN_3;
+    		default:
+    			return null;
+    	}
+    }
+
     public static void toKana() {
 
-    	String key = "xts";
-    	if(ROMAN_3.containsKey(key)) {
-    		System.out.println("*" + ROMAN_3.get(key).get(2) + "*");
-    	}
+    	String key = "sw";
 
-    	if(AIUEO.contains("u")) {
-    		System.out.println("*" + AIUEO.indexOf("u") + "*");
+    	if(ROMAN(2).containsKey(key)) {
+    		System.out.println("*" + ROMAN(2).get(key).get(BOIN.indexOf("o")) + "*");
     	}
-
     }
 
 }

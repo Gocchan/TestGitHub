@@ -236,10 +236,6 @@ public class TestJapanese {
 					if(cnt > 3) {
 
 						int cutting = cnt - 3; // はみ出た分
-						System.out.println("buf：" + buf);
-						System.out.println("おさき：" + buf.substring(0, cutting + 1));
-						System.out.println("cutting：" + cutting);
-
 						out += buf.substring(0, cutting); // 1文字目から1文字
 						buf = buf.substring(cutting); // 残す分（3文字）
 						cnt = 3;

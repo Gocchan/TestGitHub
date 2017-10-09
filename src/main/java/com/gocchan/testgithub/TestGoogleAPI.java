@@ -16,11 +16,11 @@ public class TestGoogleAPI {
 
     	String out = "";
 		try {
-    		//String enc_hiragana = URLEncoder.encode(str,"UTF-8");
-			String enc_hiragana = URLEncoder.encode(str,"Shift_JIS");
+    		String enc_hiragana = URLEncoder.encode(str,"UTF-8");
+
     		HttpURLConnection conn = null;
-    		conn = (HttpURLConnection) new URL(API_URL + enc_hiragana).openConnection();
-    		//conn = (HttpURLConnection) new URL(API_URL + enc_hiragana + "&charset=UTF-8").openConnection();
+
+    		conn = (HttpURLConnection) new URL(API_URL + enc_hiragana + "&charset=UTF-8").openConnection();
 
     		conn.setRequestMethod("GET");
     		//conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
@@ -46,15 +46,15 @@ public class TestGoogleAPI {
 
     			int p;
     			String fromStr = responseJSON.toString();
-    			//[["‚±‚±‚Å‚Í",["‚±‚±‚Å‚Í","ŒÂX‚Å‚Í","ƒRƒR‚Å‚Í","Ÿ ˆ‚Å‚Í","ƒRƒRƒf‚Í"]],["‚«‚à‚Ì‚ğ",["’…•¨‚ğ","‚«‚à‚Ì‚ğ","ƒLƒ‚ƒm‚ğ","”í•¨‚ğ","–Ø‚à‚Ì‚ğ"]],["‚Ê‚®",["’E‚®","‚Ê‚®","ƒkƒO","@","‚"]]]
+    			//[["ã“ã“ã§ã¯",["ã“ã“ã§ã¯","å€‹ã€…ã§ã¯","ã‚³ã‚³ã§ã¯","æ­¤ å‡¦ã§ã¯","ã‚³ã‚³ãƒ‡ã¯"]],["ãã‚‚ã®ã‚’",["ç€ç‰©ã‚’","ãã‚‚ã®ã‚’","ã‚­ãƒ¢ãƒã‚’","è¢«ç‰©ã‚’","æœ¨ã‚‚ã®ã‚’"]],["ã¬ã",["è„±ã","ã¬ã","ãƒŒã‚°","æ‹­","æ©"]]]
 
 
     			while ((p = fromStr.indexOf("\",[\"")) != -1){
 
     	        	fromStr = fromStr.substring(p + 4);
     	        	String wrk = fromStr.substring(0, fromStr.indexOf("\""));
-    	        	wrk = wrk.replaceAll("i", " (");
-    	        	wrk = wrk.replaceAll("j", ") ");
+    	        	wrk = wrk.replaceAll("ï¼ˆ", " (");
+    	        	wrk = wrk.replaceAll("ï¼‰", ") ");
 
     	        	//str.append(wrk);
     	        	out += wrk;
@@ -78,7 +78,7 @@ public class TestGoogleAPI {
 
 
 		} catch (IOException e) {
-			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
 			e.printStackTrace();
 		}
 		return str;

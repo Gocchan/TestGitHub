@@ -30,16 +30,16 @@ public class TestGinput {
 
 	}
 
-	// ƒRƒ}ƒ“ƒhƒ`ƒFƒbƒN
+	// ã‚³ãƒãƒ³ãƒ‰ãƒã‚§ãƒƒã‚¯
 	private static String changeLine(String str) {
 
 		if(str.isEmpty()) return "";
 
 		if(str.charAt(0) == '/') {
-			return "ƒRƒ}ƒ“ƒh:" + str;
+			return "ã‚³ãƒãƒ³ãƒ‰:" + str;
 
 		} else if(!isOneByteChar(str)) {
-			return "‘SŠp“ü‚è:" + str;
+			return "å…¨è§’å…¥ã‚Š:" + str;
 
 		} else if(isURL(str) || isEmail(str)) {
 			return "URL:" + str;
@@ -48,7 +48,7 @@ public class TestGinput {
 
 	}
 
-	// 1ƒoƒCƒg•¶š‚Ì‚İ‚©‚Ç‚¤‚©
+	// 1ãƒã‚¤ãƒˆæ–‡å­—ã®ã¿ã‹ã©ã†ã‹
 	public static boolean isOneByteChar(String str) {
 
 		if(str == null || str.length() == 0){
@@ -65,13 +65,13 @@ public class TestGinput {
 		return true;
 	}
 
-	// URL‚©‚Ç‚¤‚©
+	// URLã‹ã©ã†ã‹
 	private static boolean isURL(String str) {
 
 		// http://www.sejuku.net/blog/13215#URL
 		// https://qiita.com/konweb/items/97cccb28973aefe4b0c6
 
-		// ³‹K•\Œ»‚Ìƒpƒ^[ƒ“‚ğì¬
+		// æ­£è¦è¡¨ç¾ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½œæˆ
         //Pattern p = Pattern.compile("^https?://[a-z\\.:/\\+\\-\\#\\?\\=\\&\\;\\%\\~]+$");
         Pattern p = Pattern.compile("^(https?|ftp)(:\\/\\/[-_.!~*\\'()a-zA-Z0-9;\\/?:\\@&=+\\$,%#]+)$");
         Matcher m = p.matcher(str);
@@ -79,13 +79,13 @@ public class TestGinput {
 		return m.find();
 	}
 
-	// ƒ[ƒ‹ƒAƒhƒŒƒX‚©‚Ç‚¤‚©
+	// ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã‹ã©ã†ã‹
 	private static boolean isEmail(String str) {
 
 		// http://www.sejuku.net/blog/13215#URL
 		// https://qiita.com/konweb/items/97cccb28973aefe4b0c6
 
-		// ³‹K•\Œ»‚Ìƒpƒ^[ƒ“‚ğì¬
+		// æ­£è¦è¡¨ç¾ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½œæˆ
 		//Pattern p = Pattern.compile(
         //       "^(([0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+(\\.[0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+)*)|(\"[^\"]*\"))"
         //               + "@[0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+"

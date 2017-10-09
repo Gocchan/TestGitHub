@@ -11,91 +11,91 @@ public class TestJapanese {
 
     private static final Map<String, List<String>> ROMAN_0 = new HashMap<String, List<String>>() {
     	{
-    		put("", Arrays.asList("‚ ", "‚¢", "‚¤", "‚¦", "‚¨"));
+    		put("", Arrays.asList("ã‚", "ã„", "ã†", "ãˆ", "ãŠ"));
     	}
     };
 
     private static final Map<String, List<String>> ROMAN_1 = new HashMap<String, List<String>>() {
     	{
-    		put("k", Arrays.asList("‚©", "‚«", "‚­", "‚¯", "‚±"));
-    		put("g", Arrays.asList("‚ª", "‚¬", "‚®", "‚°", "‚²"));
-    		put("s", Arrays.asList("‚³", "‚µ", "‚·", "‚¹", "‚»"));
-    		put("z", Arrays.asList("‚´", "‚¶", "‚¸", "‚º", "‚¼"));
-    		put("t", Arrays.asList("‚½", "‚¿", "‚Â", "‚Ä", "‚Æ"));
-    		put("d", Arrays.asList("‚¾", "‚À", "‚Ã", "‚Å", "‚Ç"));
-    		put("n", Arrays.asList("‚È", "‚É", "‚Ê", "‚Ë", "‚Ì"));
-    		put("h", Arrays.asList("‚Í", "‚Ğ", "‚Ó", "‚Ö", "‚Ù"));
-    		put("b", Arrays.asList("‚Î", "‚Ñ", "‚Ô", "‚×", "‚Ú"));
-    		put("p", Arrays.asList("‚Ï", "‚Ò", "‚Õ", "‚Ø", "‚Û"));
-    		put("m", Arrays.asList("‚Ü", "‚İ", "‚Ş", "‚ß", "‚à"));
-    		put("y", Arrays.asList("‚â", "‚¢", "‚ä", "‚¢‚¥", "‚æ"));
-    		put("r", Arrays.asList("‚ç", "‚è", "‚é", "‚ê", "‚ë"));
-    		put("w", Arrays.asList("‚í", "‚¤‚¡", "‚¤", "‚¤‚¥", "‚ğ"));
-    		put("j", Arrays.asList("‚¶‚á", "‚¶", "‚¶‚ã", "‚¶‚¥", "‚¶‚å"));
-    		put("f", Arrays.asList("‚Ó‚Ÿ", "‚Ó‚¡", "‚Ó", "‚Ó‚¥", "‚Ó‚§"));
-    		put("x", Arrays.asList("‚Ÿ", "‚¡", "‚£", "‚¥", "‚§"));
-    		put("v", Arrays.asList("ƒ”‚Ÿ", "ƒ”‚¡", "ƒ”", "ƒ”‚¥", "ƒ”‚§"));
-    		put("q", Arrays.asList("‚­‚Ÿ", "‚­‚¡", "‚­", "‚­‚¥", "‚­‚§"));
-    		put("l", Arrays.asList("‚Ÿ", "‚¡", "‚£" , "‚¥" , "‚§"));
-    		put("c", Arrays.asList("‚©", "‚µ", "‚­", "‚¹", "‚±"));
+    		put("k", Arrays.asList("ã‹", "ã", "ã", "ã‘", "ã“"));
+    		put("g", Arrays.asList("ãŒ", "ã", "ã", "ã’", "ã”"));
+    		put("s", Arrays.asList("ã•", "ã—", "ã™", "ã›", "ã"));
+    		put("z", Arrays.asList("ã–", "ã˜", "ãš", "ãœ", "ã"));
+    		put("t", Arrays.asList("ãŸ", "ã¡", "ã¤", "ã¦", "ã¨"));
+    		put("d", Arrays.asList("ã ", "ã¢", "ã¥", "ã§", "ã©"));
+    		put("n", Arrays.asList("ãª", "ã«", "ã¬", "ã­", "ã®"));
+    		put("h", Arrays.asList("ã¯", "ã²", "ãµ", "ã¸", "ã»"));
+    		put("b", Arrays.asList("ã°", "ã³", "ã¶", "ã¹", "ã¼"));
+    		put("p", Arrays.asList("ã±", "ã´", "ã·", "ãº", "ã½"));
+    		put("m", Arrays.asList("ã¾", "ã¿", "ã‚€", "ã‚", "ã‚‚"));
+    		put("y", Arrays.asList("ã‚„", "ã„", "ã‚†", "ã„ã‡", "ã‚ˆ"));
+    		put("r", Arrays.asList("ã‚‰", "ã‚Š", "ã‚‹", "ã‚Œ", "ã‚"));
+    		put("w", Arrays.asList("ã‚", "ã†ãƒ", "ã†", "ã†ã‡", "ã‚’"));
+    		put("j", Arrays.asList("ã˜ã‚ƒ", "ã˜", "ã˜ã‚…", "ã˜ã‡", "ã˜ã‚‡"));
+    		put("f", Arrays.asList("ãµã", "ãµãƒ", "ãµ", "ãµã‡", "ãµã‰"));
+    		put("x", Arrays.asList("ã", "ãƒ", "ã…", "ã‡", "ã‰"));
+    		put("v", Arrays.asList("ãƒ´ã", "ãƒ´ãƒ", "ãƒ´", "ãƒ´ã‡", "ãƒ´ã‰"));
+    		put("q", Arrays.asList("ãã", "ããƒ", "ã", "ãã‡", "ãã‰"));
+    		put("l", Arrays.asList("ã", "ãƒ", "ã…" , "ã‡" , "ã‰"));
+    		put("c", Arrays.asList("ã‹", "ã—", "ã", "ã›", "ã“"));
     	}
     };
 
     private static final Map<String, List<String>> ROMAN_2 = new HashMap<String, List<String>>() {
     	{
-	    	put("wy", Arrays.asList("", "‚î", "", "‚ï", ""));
-	    	put("ky", Arrays.asList("‚«‚á", "‚«‚¡", "‚«‚ã", "‚«‚¥", "‚«‚å"));
-	    	put("gy", Arrays.asList("‚¬‚á", "‚¬‚¡", "‚¬‚ã", "‚¬‚¥", "‚¬‚å"));
-	    	put("sy", Arrays.asList("‚µ‚á", "‚µ‚¡", "‚µ‚ã", "‚µ‚¥", "‚µ‚å"));
-	    	put("sh", Arrays.asList("‚µ‚á", "‚µ", "‚µ‚ã", "‚µ‚¥", "‚µ‚å"));
-	    	put("zy", Arrays.asList("‚¶‚á", "‚¶‚¡", "‚¶‚ã", "‚¶‚¥", "‚¶‚å"));
-	    	put("ty", Arrays.asList("‚¿‚á", "‚¿‚¡", "‚¿‚ã", "‚¿‚¥", "‚¿‚å"));
-	    	put("ch", Arrays.asList("‚¿‚á", "‚¿", "‚¿‚ã", "‚¿‚¥", "‚¿‚å"));
-	    	put("dy", Arrays.asList("‚À‚á", "‚À‚¡", "‚À‚ã", "‚À‚¥", "‚À‚å"));
-	    	put("ny", Arrays.asList("‚É‚á", "‚É‚¡", "‚É‚ã", "‚É‚¥", "‚É‚å"));
-	    	put("hy", Arrays.asList("‚Ğ‚á", "‚Ğ‚¡", "‚Ğ‚ã", "‚Ğ‚¥", "‚Ğ‚å"));
-	    	put("by", Arrays.asList("‚Ñ‚á", "‚Ñ‚¡", "‚Ñ‚ã", "‚Ñ‚¥", "‚Ñ‚å"));
-	    	put("py", Arrays.asList("‚Ò‚á", "‚Ò‚¡", "‚Ò‚ã", "‚Ò‚¥", "‚Ò‚å"));
-	    	put("my", Arrays.asList("‚İ‚á", "‚İ‚¡", "‚İ‚ã", "‚İ‚¥", "‚İ‚å"));
-	    	put("ry", Arrays.asList("‚è‚á", "‚è‚¡", "‚è‚ã", "‚è‚¥", "‚è‚å"));
-	    	put("ts", Arrays.asList("‚Â‚Ÿ", "‚Â‚¡", "‚Â", "‚Â‚¥", "‚Â‚§"));
-	    	put("th", Arrays.asList("‚Ä‚á", "‚Ä‚¡", "‚Ä‚ã", "‚Ä‚¥", "‚Ä‚å"));
-	    	put("dh", Arrays.asList("‚Å‚á", "‚Å‚¡", "‚Å‚ã", "‚Å‚¥", "‚Å‚å"));
-	    	put("xk", Arrays.asList("ƒ•", "", "", "ƒ–", ""));
-	    	put("xt", Arrays.asList("", "", "‚Á", "", ""));
-	    	put("xy", Arrays.asList("‚á", "‚¡", "‚ã", "‚¥", "‚å"));
-	    	put("xw", Arrays.asList("‚ì", "", "", "", ""));
-	    	put("wh", Arrays.asList("‚¤‚Ÿ", "‚¤‚¡", "‚¤", "‚¤‚¥", "‚¤‚§"));
-	    	put("vy", Arrays.asList("ƒ”‚á", "ƒ”‚¡", "ƒ”‚ã", "ƒ”‚¥", "ƒ”‚å"));
-	    	put("kw", Arrays.asList("‚­‚Ÿ", "‚­‚¡", "‚­‚£", "‚­‚¥", "‚­‚§"));
-	    	put("gw", Arrays.asList("‚®‚Ÿ", "‚®‚¡", "‚®‚£", "‚®‚¥", "‚®‚§"));
-	    	put("jy", Arrays.asList("‚¶‚á", "‚¶‚¡", "‚¶‚ã", "‚¶‚¥", "‚¶‚å"));
-	    	put("cy", Arrays.asList("‚¿‚á", "‚¿‚¡", "‚¿‚ã", "‚¿‚¥", "‚¿‚å"));
-	    	put("tw", Arrays.asList("‚Æ‚Ÿ", "‚Æ‚¡", "‚Æ‚£", "‚Æ‚¥", "‚Æ‚§"));
-	    	put("dw", Arrays.asList("‚Ç‚Ÿ", "‚Ç‚¡", "‚Ç‚£", "‚Ç‚¥", "‚Ç‚§"));
-	    	put("hw", Arrays.asList("‚Ó‚Ÿ", "‚Ó‚¡", "", "‚Ó‚¥", "‚Ó‚§"));
-	    	put("fy", Arrays.asList("‚Ó‚á", "‚Ó‚¡", "‚Ó‚ã", "‚Ó‚¥", "‚Ó‚å"));
-	    	put("lk", Arrays.asList("ƒ•", "", "", "ƒ–", ""));
-	    	put("lt", Arrays.asList("", "", "‚Á", "", ""));
-	    	put("ly", Arrays.asList("‚á", "‚¡", "‚ã", "‚¥", "‚å"));
-	    	put("lw", Arrays.asList("‚ì", "", "", "", ""));
-	    	put("qw", Arrays.asList("‚­‚Ÿ", "‚­‚¡", "‚­‚£", "‚­‚¥", "‚­‚§"));
-	    	put("sw", Arrays.asList("‚·‚Ÿ", "‚·‚¡", "‚·‚£", "‚·‚¥", "‚·‚§"));
-	    	put("zw", Arrays.asList("‚¸‚Ÿ", "‚¸‚¡", "‚¸‚£", "‚¸‚¥", "‚¸‚§"));
-	    	put("fw", Arrays.asList("‚Ó‚Ÿ", "‚Ó‚¡", "‚Ó‚£", "‚Ó‚¥", "‚Ó‚§"));
-	    	put("qy", Arrays.asList("‚­‚á", "‚­‚¡", "‚­‚ã", "‚­‚¥", "‚­‚å"));
-			put("t'", Arrays.asList("", "‚Ä‚¡", "‚Æ‚£", "", ""));
-			put("d'", Arrays.asList("", "‚Å‚¡", "‚Ç‚£", "", ""));
+	    	put("wy", Arrays.asList("", "ã‚", "", "ã‚‘", ""));
+	    	put("ky", Arrays.asList("ãã‚ƒ", "ããƒ", "ãã‚…", "ãã‡", "ãã‚‡"));
+	    	put("gy", Arrays.asList("ãã‚ƒ", "ããƒ", "ãã‚…", "ãã‡", "ãã‚‡"));
+	    	put("sy", Arrays.asList("ã—ã‚ƒ", "ã—ãƒ", "ã—ã‚…", "ã—ã‡", "ã—ã‚‡"));
+	    	put("sh", Arrays.asList("ã—ã‚ƒ", "ã—", "ã—ã‚…", "ã—ã‡", "ã—ã‚‡"));
+	    	put("zy", Arrays.asList("ã˜ã‚ƒ", "ã˜ãƒ", "ã˜ã‚…", "ã˜ã‡", "ã˜ã‚‡"));
+	    	put("ty", Arrays.asList("ã¡ã‚ƒ", "ã¡ãƒ", "ã¡ã‚…", "ã¡ã‡", "ã¡ã‚‡"));
+	    	put("ch", Arrays.asList("ã¡ã‚ƒ", "ã¡", "ã¡ã‚…", "ã¡ã‡", "ã¡ã‚‡"));
+	    	put("dy", Arrays.asList("ã¢ã‚ƒ", "ã¢ãƒ", "ã¢ã‚…", "ã¢ã‡", "ã¢ã‚‡"));
+	    	put("ny", Arrays.asList("ã«ã‚ƒ", "ã«ãƒ", "ã«ã‚…", "ã«ã‡", "ã«ã‚‡"));
+	    	put("hy", Arrays.asList("ã²ã‚ƒ", "ã²ãƒ", "ã²ã‚…", "ã²ã‡", "ã²ã‚‡"));
+	    	put("by", Arrays.asList("ã³ã‚ƒ", "ã³ãƒ", "ã³ã‚…", "ã³ã‡", "ã³ã‚‡"));
+	    	put("py", Arrays.asList("ã´ã‚ƒ", "ã´ãƒ", "ã´ã‚…", "ã´ã‡", "ã´ã‚‡"));
+	    	put("my", Arrays.asList("ã¿ã‚ƒ", "ã¿ãƒ", "ã¿ã‚…", "ã¿ã‡", "ã¿ã‚‡"));
+	    	put("ry", Arrays.asList("ã‚Šã‚ƒ", "ã‚Šãƒ", "ã‚Šã‚…", "ã‚Šã‡", "ã‚Šã‚‡"));
+	    	put("ts", Arrays.asList("ã¤ã", "ã¤ãƒ", "ã¤", "ã¤ã‡", "ã¤ã‰"));
+	    	put("th", Arrays.asList("ã¦ã‚ƒ", "ã¦ãƒ", "ã¦ã‚…", "ã¦ã‡", "ã¦ã‚‡"));
+	    	put("dh", Arrays.asList("ã§ã‚ƒ", "ã§ãƒ", "ã§ã‚…", "ã§ã‡", "ã§ã‚‡"));
+	    	put("xk", Arrays.asList("ãƒµ", "", "", "ãƒ¶", ""));
+	    	put("xt", Arrays.asList("", "", "ã£", "", ""));
+	    	put("xy", Arrays.asList("ã‚ƒ", "ãƒ", "ã‚…", "ã‡", "ã‚‡"));
+	    	put("xw", Arrays.asList("ã‚", "", "", "", ""));
+	    	put("wh", Arrays.asList("ã†ã", "ã†ãƒ", "ã†", "ã†ã‡", "ã†ã‰"));
+	    	put("vy", Arrays.asList("ãƒ´ã‚ƒ", "ãƒ´ãƒ", "ãƒ´ã‚…", "ãƒ´ã‡", "ãƒ´ã‚‡"));
+	    	put("kw", Arrays.asList("ãã", "ããƒ", "ãã…", "ãã‡", "ãã‰"));
+	    	put("gw", Arrays.asList("ãã", "ããƒ", "ãã…", "ãã‡", "ãã‰"));
+	    	put("jy", Arrays.asList("ã˜ã‚ƒ", "ã˜ãƒ", "ã˜ã‚…", "ã˜ã‡", "ã˜ã‚‡"));
+	    	put("cy", Arrays.asList("ã¡ã‚ƒ", "ã¡ãƒ", "ã¡ã‚…", "ã¡ã‡", "ã¡ã‚‡"));
+	    	put("tw", Arrays.asList("ã¨ã", "ã¨ãƒ", "ã¨ã…", "ã¨ã‡", "ã¨ã‰"));
+	    	put("dw", Arrays.asList("ã©ã", "ã©ãƒ", "ã©ã…", "ã©ã‡", "ã©ã‰"));
+	    	put("hw", Arrays.asList("ãµã", "ãµãƒ", "", "ãµã‡", "ãµã‰"));
+	    	put("fy", Arrays.asList("ãµã‚ƒ", "ãµãƒ", "ãµã‚…", "ãµã‡", "ãµã‚‡"));
+	    	put("lk", Arrays.asList("ãƒµ", "", "", "ãƒ¶", ""));
+	    	put("lt", Arrays.asList("", "", "ã£", "", ""));
+	    	put("ly", Arrays.asList("ã‚ƒ", "ãƒ", "ã‚…", "ã‡", "ã‚‡"));
+	    	put("lw", Arrays.asList("ã‚", "", "", "", ""));
+	    	put("qw", Arrays.asList("ãã", "ããƒ", "ãã…", "ãã‡", "ãã‰"));
+	    	put("sw", Arrays.asList("ã™ã", "ã™ãƒ", "ã™ã…", "ã™ã‡", "ã™ã‰"));
+	    	put("zw", Arrays.asList("ãšã", "ãšãƒ", "ãšã…", "ãšã‡", "ãšã‰"));
+	    	put("fw", Arrays.asList("ãµã", "ãµãƒ", "ãµã…", "ãµã‡", "ãµã‰"));
+	    	put("qy", Arrays.asList("ãã‚ƒ", "ããƒ", "ãã‚…", "ãã‡", "ãã‚‡"));
+			put("t'", Arrays.asList("", "ã¦ãƒ", "ã¨ã…", "", ""));
+			put("d'", Arrays.asList("", "ã§ãƒ", "ã©ã…", "", ""));
     	}
     };
 
     private static final Map<String, List<String>> ROMAN_3 = new HashMap<String, List<String>>() {
 	    {
-	    	put("hwy", Arrays.asList("", "", "‚Ó‚ã", "", ""));
-	    	put("xts", Arrays.asList("", "", "‚Á", "", ""));
-	    	put("lts", Arrays.asList("", "", "‚Á", "", ""));
-	    	put("t'y", Arrays.asList("", "", "‚Ä‚ã", "", ""));
-	    	put("d'y", Arrays.asList("", "", "‚Å‚ã", "", ""));
+	    	put("hwy", Arrays.asList("", "", "ãµã‚…", "", ""));
+	    	put("xts", Arrays.asList("", "", "ã£", "", ""));
+	    	put("lts", Arrays.asList("", "", "ã£", "", ""));
+	    	put("t'y", Arrays.asList("", "", "ã¦ã‚…", "", ""));
+	    	put("d'y", Arrays.asList("", "", "ã§ã‚…", "", ""));
 
 
 	    }
@@ -118,96 +118,96 @@ public class TestJapanese {
 
     private static char toZenkaku(char c) {
         switch(c) {
-	        case '!' : return 'I';
-	        case '\"': return 'h';
-	        case '#' : return '”';
-	        case '$' : return '';
-	        case '\\': return '';
-	        case '%' : return '“';
-	        case '&' : return '•';
-	        case '\'': return 'f';
-	        case '(' : return 'i';
-	        case ')' : return 'j';
-	        case '*' : return '–';
-	        case '+' : return '{';
-	        case ',' : return 'A';
-	        case '~' : return '`';
-	        case '-' : return '[';
-	        case '^' : return '['; // ‘å–I
-	        case '.' : return 'B';
-	        case '/' : return '^';
-	        case '0' : return '‚O';
-	        case '1' : return '‚P';
-	        case '2' : return '‚Q';
-	        case '3' : return '‚R';
-	        case '4' : return '‚S';
-	        case '5' : return '‚T';
-	        case '6' : return '‚U';
-	        case '7' : return '‚V';
-	        case '8' : return '‚W';
-	        case '9' : return '‚X';
-	        case ':' : return 'F';
-	        case ';' : return 'G';
-	        case '<' : return 'ƒ';
-	        case '=' : return '';
-	        case '>' : return '„';
-	        case '?' : return 'H';
-	        case '@' : return '—';
-	        case 'A' : return '‚`';
-	        case 'B' : return '‚a';
-	        case 'C' : return '‚b';
-	        case 'D' : return '‚c';
-	        case 'E' : return '‚d';
-	        case 'F' : return '‚e';
-	        case 'G' : return '‚f';
-	        case 'H' : return '‚g';
-	        case 'I' : return '‚h';
-	        case 'J' : return '‚i';
-	        case 'K' : return '‚j';
-	        case 'L' : return '‚k';
-	        case 'M' : return '‚l';
-	        case 'N' : return '‚m';
-	        case 'O' : return '‚n';
-	        case 'P' : return '‚o';
-	        case 'Q' : return '‚p';
-	        case 'R' : return '‚q';
-	        case 'S' : return '‚r';
-	        case 'T' : return '‚s';
-	        case 'U' : return '‚t';
-	        case 'V' : return '‚u';
-	        case 'W' : return '‚v';
-	        case 'X' : return '‚w';
-	        case 'Y' : return '‚x';
-	        case 'Z' : return '‚y';
-	        case '`' : return 'e';
-	        case '[' : return 'u';
-	        case ']' : return 'v';
-	        case 'a' : return '‚';
-	        case 'b' : return '‚‚';
-	        case 'c' : return '‚ƒ';
-	        case 'd' : return '‚„';
-	        case 'e' : return '‚…';
-	        case 'f' : return '‚†';
-	        case 'g' : return '‚‡';
-	        case 'h' : return '‚ˆ';
-	        case 'i' : return '‚‰';
-	        case 'j' : return '‚Š';
-	        case 'k' : return '‚‹';
-	        case 'l' : return '‚Œ';
-	        case 'm' : return '‚';
-	        case 'n' : return '‚';
-	        case 'o' : return '‚';
-	        case 'p' : return '‚';
-	        case 'q' : return '‚‘';
-	        case 'r' : return '‚’';
-	        case 's' : return '‚“';
-	        case 't' : return '‚”';
-	        case 'u' : return '‚•';
-	        case 'v' : return '‚–';
-	        case 'w' : return '‚—';
-	        case 'x' : return '‚˜';
-	        case 'y' : return '‚™';
-	        case 'z' : return '‚š';
+	        case '!' : return 'ï¼';
+	        case '\"': return 'â€';
+	        case '#' : return 'ï¼ƒ';
+	        case '$' : return 'ï¼„';
+	        case '\\': return 'ï¿¥';
+	        case '%' : return 'ï¼…';
+	        case '&' : return 'ï¼†';
+	        case '\'': return 'â€™';
+	        case '(' : return 'ï¼ˆ';
+	        case ')' : return 'ï¼‰';
+	        case '*' : return 'ï¼Š';
+	        case '+' : return 'ï¼‹';
+	        case ',' : return 'ã€';
+	        case '~' : return 'ï½';
+	        case '-' : return 'ãƒ¼';
+	        case '^' : return 'ãƒ¼'; // å¤§äº‹ï¼
+	        case '.' : return 'ã€‚';
+	        case '/' : return 'ï¼';
+	        case '0' : return 'ï¼';
+	        case '1' : return 'ï¼‘';
+	        case '2' : return 'ï¼’';
+	        case '3' : return 'ï¼“';
+	        case '4' : return 'ï¼”';
+	        case '5' : return 'ï¼•';
+	        case '6' : return 'ï¼–';
+	        case '7' : return 'ï¼—';
+	        case '8' : return 'ï¼˜';
+	        case '9' : return 'ï¼™';
+	        case ':' : return 'ï¼š';
+	        case ';' : return 'ï¼›';
+	        case '<' : return 'ï¼œ';
+	        case '=' : return 'ï¼';
+	        case '>' : return 'ï¼';
+	        case '?' : return 'ï¼Ÿ';
+	        case '@' : return 'ï¼ ';
+	        case 'A' : return 'ï¼¡';
+	        case 'B' : return 'ï¼¢';
+	        case 'C' : return 'ï¼£';
+	        case 'D' : return 'ï¼¤';
+	        case 'E' : return 'ï¼¥';
+	        case 'F' : return 'ï¼¦';
+	        case 'G' : return 'ï¼§';
+	        case 'H' : return 'ï¼¨';
+	        case 'I' : return 'ï¼©';
+	        case 'J' : return 'ï¼ª';
+	        case 'K' : return 'ï¼«';
+	        case 'L' : return 'ï¼¬';
+	        case 'M' : return 'ï¼­';
+	        case 'N' : return 'ï¼®';
+	        case 'O' : return 'ï¼¯';
+	        case 'P' : return 'ï¼°';
+	        case 'Q' : return 'ï¼±';
+	        case 'R' : return 'ï¼²';
+	        case 'S' : return 'ï¼³';
+	        case 'T' : return 'ï¼´';
+	        case 'U' : return 'ï¼µ';
+	        case 'V' : return 'ï¼¶';
+	        case 'W' : return 'ï¼·';
+	        case 'X' : return 'ï¼¸';
+	        case 'Y' : return 'ï¼¹';
+	        case 'Z' : return 'ï¼º';
+	        case '`' : return 'â€˜';
+	        case '[' : return 'ã€Œ';
+	        case ']' : return 'ã€';
+	        case 'a' : return 'ï½';
+	        case 'b' : return 'ï½‚';
+	        case 'c' : return 'ï½ƒ';
+	        case 'd' : return 'ï½„';
+	        case 'e' : return 'ï½…';
+	        case 'f' : return 'ï½†';
+	        case 'g' : return 'ï½‡';
+	        case 'h' : return 'ï½ˆ';
+	        case 'i' : return 'ï½‰';
+	        case 'j' : return 'ï½Š';
+	        case 'k' : return 'ï½‹';
+	        case 'l' : return 'ï½Œ';
+	        case 'm' : return 'ï½';
+	        case 'n' : return 'ï½';
+	        case 'o' : return 'ï½';
+	        case 'p' : return 'ï½';
+	        case 'q' : return 'ï½‘';
+	        case 'r' : return 'ï½’';
+	        case 's' : return 'ï½“';
+	        case 't' : return 'ï½”';
+	        case 'u' : return 'ï½•';
+	        case 'v' : return 'ï½–';
+	        case 'w' : return 'ï½—';
+	        case 'x' : return 'ï½˜';
+	        case 'y' : return 'ï½™';
+	        case 'z' : return 'ï½š';
 	        default	: return c;
         }
     }
@@ -221,38 +221,38 @@ public class TestJapanese {
 
 		for(int i = 0; i < in.length(); i++) {
 
-			now = in.substring(i,i+1); // i•¶š–Ú‚©‚ç1•¶š
+			now = in.substring(i,i+1); // iæ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
 
 			if(java.lang.Character.isLowerCase(in.charAt(i))) {
 
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
 				if(BOIN.contains(now)) {
 
-					// *** ‚±‚±‚¢‚ç•Ó‚Ü‚Æ‚ß‚È‚¢‚ÆEEE ***
+					// *** ã“ã“ã„ã‚‰è¾ºã¾ã¨ã‚ãªã„ã¨ãƒ»ãƒ»ãƒ» ***
 
-					// ƒoƒbƒtƒ@[3•¶š‰z‚¦‘Îô
-					// ŒŸõ‚Íƒoƒbƒtƒ@[‚ª3•¶šˆÈ‰º‘ÎÛ‚È‚Ì‚Å‚Í‚İo‚µ‚½•ª‚ğæ‚É‘—‚èo‚·
+					// ãƒãƒƒãƒ•ã‚¡ãƒ¼3æ–‡å­—è¶Šãˆå¯¾ç­–
+					// æ¤œç´¢ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ãŒ3æ–‡å­—ä»¥ä¸‹å¯¾è±¡ãªã®ã§ã¯ã¿å‡ºã—ãŸåˆ†ã‚’å…ˆã«é€ã‚Šå‡ºã™
 					if(cnt > 3) {
 
-						int cutting = cnt - 3; // ‚Í‚İo‚½•ª
-						out += buf.substring(0, cutting); // 1•¶š–Ú‚©‚ç1•¶š
-						buf = buf.substring(cutting); // c‚·•ªi3•¶šj
+						int cutting = cnt - 3; // ã¯ã¿å‡ºãŸåˆ†
+						out += buf.substring(0, cutting); // 1æ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
+						buf = buf.substring(cutting); // æ®‹ã™åˆ†ï¼ˆ3æ–‡å­—ï¼‰
 						cnt = 3;
 					}
 
-					// Œ¸‚ç‚µ‚Ä‚¢‚«‚È‚ª‚çŒŸõ‚·‚é‚±‚ÆI
+					// æ¸›ã‚‰ã—ã¦ã„ããªãŒã‚‰æ¤œç´¢ã™ã‚‹ã“ã¨ï¼
 					if(cnt >= 3) {
-						// ¬‚³‚¢@‚Á@‘Î‰2
+						// å°ã•ã„ã€€ã£ã€€å¯¾å¿œ2
 
 
-						// ƒL[‚Ì1•¶š–Ú‚Æ2•¶š–Ú‚ª“¯‚¶‚Å‚»‚ê‚ç‚Æ3•¶š–Ú‚ªˆÙ‚È‚éê‡
+						// ã‚­ãƒ¼ã®1æ–‡å­—ç›®ã¨2æ–‡å­—ç›®ãŒåŒã˜ã§ãã‚Œã‚‰ã¨3æ–‡å­—ç›®ãŒç•°ãªã‚‹å ´åˆ
 						if(buf.substring(0,1).equals(buf.substring(1,2))
 								&& !buf.substring(0,1).equals(buf.substring(2,3))) {
 
-							// ÅŒã‚ª•ê‰¹‚È‚Ì‚Å‚±‚Ì“_‚Å"‚Á"Šm’è
-							// ‚Î‚©‚¾‚Ó‚Ÿ‚ª‚Í‚¶‚á‚©‚Ÿ‚Ü‚È‚Ï‚Ÿ‚ç‚³‚½ƒ”‚Ÿ‚í‚Ÿ‚â‚´
+							// æœ€å¾ŒãŒæ¯éŸ³ãªã®ã§ã“ã®æ™‚ç‚¹ã§"ã£"ç¢ºå®š
+							// ã°ã‹ã ãµããŒã¯ã˜ã‚ƒã‹ãã¾ãªã±ãã‚‰ã•ãŸãƒ´ãã‚ãã‚„ã–
 
-							out += "‚Á";
+							out += "ã£";
 							cnt = 2;
 							buf = buf.substring(1);
 
@@ -265,19 +265,19 @@ public class TestJapanese {
 
 						} else {
 
-							// 1•¶šŒ¸‚ç‚·
-							out += buf.substring(0, 1); // 1•¶š–Ú‚©‚ç1•¶š
-							buf = buf.substring(1); // c‚·•ªi2•¶šj
+							// 1æ–‡å­—æ¸›ã‚‰ã™
+							out += buf.substring(0, 1); // 1æ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
+							buf = buf.substring(1); // æ®‹ã™åˆ†ï¼ˆ2æ–‡å­—ï¼‰
 						}
 					}
 
 					if(cnt >= 2) {
-						// ¬‚³‚¢@‚Á@‘Î‰‚P
+						// å°ã•ã„ã€€ã£ã€€å¯¾å¿œï¼‘
 						if(buf.substring(0,1).equals(buf.substring(1))) {
-							// ÅŒã‚ª•ê‰¹‚È‚Ì‚Å‚±‚Ì“_‚Å"‚Á"Šm’è
-							// ‚Î‚©‚¾‚Ó‚Ÿ‚ª‚Í‚¶‚á‚©‚Ÿ‚Ü‚È‚Ï‚Ÿ‚ç‚³‚½ƒ”‚Ÿ‚í‚Ÿ‚â‚´
+							// æœ€å¾ŒãŒæ¯éŸ³ãªã®ã§ã“ã®æ™‚ç‚¹ã§"ã£"ç¢ºå®š
+							// ã°ã‹ã ãµããŒã¯ã˜ã‚ƒã‹ãã¾ãªã±ãã‚‰ã•ãŸãƒ´ãã‚ãã‚„ã–
 
-							out += "‚Á";
+							out += "ã£";
 							cnt = 1;
 							buf = buf.substring(1);
 
@@ -291,9 +291,9 @@ public class TestJapanese {
 
 						} else {
 
-							// 1•¶šŒ¸‚ç‚·
-							out += buf.substring(0, 1); // 1•¶š–Ú‚©‚ç1•¶š
-							buf = buf.substring(1); // c‚·•ªi2•¶šj
+							// 1æ–‡å­—æ¸›ã‚‰ã™
+							out += buf.substring(0, 1); // 1æ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
+							buf = buf.substring(1); // æ®‹ã™åˆ†ï¼ˆ2æ–‡å­—ï¼‰
 						}
 					}
 
@@ -306,8 +306,8 @@ public class TestJapanese {
 							continue;
 
 						} else {
-							// 1•¶šŒ¸‚ç‚·
-							out += buf.substring(0, 1); // 1•¶š–Ú‚©‚ç1•¶š
+							// 1æ–‡å­—æ¸›ã‚‰ã™
+							out += buf.substring(0, 1); // 1æ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
 						}
 					}
 
@@ -319,7 +319,7 @@ public class TestJapanese {
 
 					if(buf.equals("ny")) {
 
-						// ‚É‚á ‚É‚ã ‚É‚å‘Î‰2
+						// ã«ã‚ƒ ã«ã‚… ã«ã‚‡å¯¾å¿œ2
 						out += buf;
 						buf = now;
 						cnt = 1;
@@ -328,13 +328,13 @@ public class TestJapanese {
 
 						if(now.equals("y")) {
 
-							// ‚É‚á ‚É‚ã ‚É‚å‘Î‰1
+							// ã«ã‚ƒ ã«ã‚… ã«ã‚‡å¯¾å¿œ1
 							buf += now;
 							cnt++;
 
 						} else {
 
-							out += "‚ñ";
+							out += "ã‚“";
 							if(now.equals("n")) {
 								buf = "";
 								cnt = 0;
@@ -355,13 +355,13 @@ public class TestJapanese {
 				}
 			} else {
 
-				// c‚è ‚ñ ‘Îô2
+				// æ®‹ã‚Š ã‚“ å¯¾ç­–2
 				if(buf.equals("n")) {
-					buf = "‚ñ";
+					buf = "ã‚“";
 				}
 
 
-				// ”¼Šp‰pšˆÈŠO
+				// åŠè§’è‹±å­—ä»¥å¤–
 				out += buf + now;
 				cnt = 0;
 				buf = "";
@@ -370,9 +370,9 @@ public class TestJapanese {
 			}
 		}
 
-		// c‚è ‚ñ ‘Îô‚P
+		// æ®‹ã‚Š ã‚“ å¯¾ç­–ï¼‘
 		if(buf.equals("n")) {
-			buf = "‚ñ";
+			buf = "ã‚“";
 		}
 
 		out += buf;

@@ -96,6 +96,8 @@ public class TestJapanese {
 	    	put("lts", Arrays.asList("", "", "っ", "", ""));
 	    	put("t'y", Arrays.asList("", "", "てゅ", "", ""));
 	    	put("d'y", Arrays.asList("", "", "でゅ", "", ""));
+
+
 	    }
     };
 
@@ -125,45 +127,124 @@ public class TestJapanese {
 
 			now = in.substring(i,i+1); // i文字目から1文字
 
-			System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now);
-			if(BOIN.contains(now)) {
+			if(java.lang.Character.isLowerCase(in.charAt(i))) {
 
-				if(ROMAN(cnt).containsKey(buf)) {
-					out += ROMAN(cnt).get(buf).get(BOIN.indexOf(now));
+
+
+				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
+				if(BOIN.contains(now)) {
+
+
+					// バッファー3文字越え対策
+					// 検索はバッファーが3文字以下対象なのではみ出した分を先に送り出す
+					if(cnt > 3) {
+
+						int cutting = cnt - 3; // はみ出た分
+
+
+						out += buf.substring(0, cutting + 1); // 1文字目から1文字
+						buf = buf.substring(cutting); // 残す分（3文字）
+						cnt = 3;
+					}
+
+
+
+					// リストは中身を空に
+					// 減らしていきながら検索すること！
+					if(cnt >= 3) {
+						if(ROMAN(3).containsKey(buf) && !ROMAN(3).get(buf).get(BOIN.indexOf(now)).isEmpty()) {
+
+							out += ROMAN(3).get(buf).get(BOIN.indexOf(now));
+							cnt = 0;
+							buf = "";
+							continue;
+
+						} else {
+
+							// 1文字減らす
+							out += buf.substring(0, 1); // 1文字目から1文字
+							buf = buf.substring(1); // 残す分（2文字）
+						}
+					}
+
+					if(cnt >= 2) {
+						// 小さい　っ　対応
+						if(buf.substring(0,1).equals(buf.substring(1))) {
+							out += "っ";
+							cnt = 1;
+							buf = buf.substring(1);
+
+						} else if(ROMAN(2).containsKey(buf) && !ROMAN(2).get(buf).get(BOIN.indexOf(now)).isEmpty()) {
+
+							out += ROMAN(2).get(buf).get(BOIN.indexOf(now));
+							cnt = 0;
+							buf = "";
+							continue;
+
+						} else {
+
+							// 1文字減らす
+							out += buf.substring(0, 1); // 1文字目から1文字
+							buf = buf.substring(1); // 残す分（2文字）
+						}
+					}
+
+					if(cnt >= 1) {
+						if(ROMAN(1).containsKey(buf) && !ROMAN(1).get(buf).get(BOIN.indexOf(now)).isEmpty()) {
+
+							out += ROMAN(1).get(buf).get(BOIN.indexOf(now));
+							cnt = 0;
+							buf = "";
+							continue;
+
+						} else {
+							// 1文字減らす
+							out += buf.substring(0, 1); // 1文字目から1文字
+						}
+					}
+					out += ROMAN(0).get("").get(BOIN.indexOf(now));
 					cnt = 0;
 					buf = "";
-				}
 
-			} else {
-
-				if(cnt > 3) {
-					out += buf.substring(0, 1); // 1文字目から1文字
-					buf = buf.substring(1) + now; // 2文字目からとカレント文字
 				} else {
 
 					if(buf.equals("n")) {
-						out += "ん";
-						if(now.equals("n")) {
-							buf = "";
-							cnt = 0;
-						} else if(now.equals("'")) {
-							buf = "";
-							cnt = 0;
+						if(!now.equals("y")) {
+							out += "ん";
+							if(now.equals("n")) {
+								buf = "";
+								cnt = 0;
+							} else if(now.equals("'")) {
+								buf = "";
+								cnt = 0;
+							} else {
+								buf = now;
+							}
 						} else {
-							buf = now;
+							// にゃ にゅ にょ対応
+							buf += now;
+							cnt++;
 						}
 
-					} else if(buf.equals(now)) {
-						out += "っ";
-						buf = now;
 					} else {
 						buf += now;
 						cnt++;
 					}
+
 				}
+			} else {
+				// 半角英字以外
+				out += buf + now;
+				cnt = 0;
+				buf = "";
+
+
 			}
 		}
 
+		if(buf.equals("n")) {
+			buf = "ん";
+		}
 		return out + buf;
 
     }

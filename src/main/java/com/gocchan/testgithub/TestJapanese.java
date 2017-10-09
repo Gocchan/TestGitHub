@@ -143,12 +143,19 @@ public class TestJapanese {
 
 					if(buf.equals("n")) {
 						out += "ん";
-						if(now.equals("n") || now.equals("'")) {
+						if(now.equals("n")) {
+							buf = "";
+							cnt = 0;
+						} else if(now.equals("'")) {
 							buf = "";
 							cnt = 0;
 						} else {
 							buf = now;
 						}
+
+					} else if(buf.equals(now)) {
+						out += "っ";
+						buf = now;
 					} else {
 						buf += now;
 						cnt++;

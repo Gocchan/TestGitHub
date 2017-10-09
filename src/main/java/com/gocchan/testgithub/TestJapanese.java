@@ -226,8 +226,6 @@ public class TestJapanese {
 
 			if(java.lang.Character.isLowerCase(in.charAt(i))) {
 
-
-
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
 				if(BOIN.contains(now)) {
 
@@ -297,6 +295,7 @@ public class TestJapanese {
 							out += buf.substring(0, 1); // 1文字目から1文字
 						}
 					}
+					
 					out += ROMAN(0).get("").get(BOIN.indexOf(now));
 					cnt = 0;
 					buf = "";

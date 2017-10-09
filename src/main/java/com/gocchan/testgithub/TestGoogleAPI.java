@@ -43,15 +43,15 @@ public class TestGoogleAPI {
 
     			int p;
     			String fromStr = responseJSON.toString();
-    			//[["ã“ã“ã§ã¯",["ã“ã“ã§ã¯","å€‹ã€…ã§ã¯","ã‚³ã‚³ã§ã¯","æ­¤ å‡¦ã§ã¯","ã‚³ã‚³ãƒ‡ã¯"]],["ãã‚‚ã®ã‚’",["ç€ç‰©ã‚’","ãã‚‚ã®ã‚’","ã‚­ãƒ¢ãƒã‚’","è¢«ç‰©ã‚’","æœ¨ã‚‚ã®ã‚’"]],["ã¬ã",["è„±ã","ã¬ã","ãƒŒã‚°","æ‹­","æ©"]]]
+    			//[["‚±‚±‚Å‚Í",["‚±‚±‚Å‚Í","ŒÂX‚Å‚Í","ƒRƒR‚Å‚Í","Ÿ ˆ‚Å‚Í","ƒRƒRƒf‚Í"]],["‚«‚à‚Ì‚ğ",["’…•¨‚ğ","‚«‚à‚Ì‚ğ","ƒLƒ‚ƒm‚ğ","”í•¨‚ğ","–Ø‚à‚Ì‚ğ"]],["‚Ê‚®",["’E‚®","‚Ê‚®","ƒkƒO","@","‚"]]]
 
 
     			while ((p = fromStr.indexOf("\",[\"")) != -1){
 
     	        	fromStr = fromStr.substring(p + 4);
     	        	String wrk = fromStr.substring(0, fromStr.indexOf("\""));
-    	        	wrk = wrk.replaceAll("ï¼ˆ", " (");
-    	        	wrk = wrk.replaceAll("ï¼‰", ") ");
+    	        	wrk = wrk.replaceAll("i", " (");
+    	        	wrk = wrk.replaceAll("j", ") ");
 
     	        	//str.append(wrk);
     	        	out += wrk;
@@ -66,7 +66,7 @@ public class TestGoogleAPI {
     			}
 
     			if(str.length() > 0){
-    				return str.toString();
+    				return str.toString();z
 
     			}
     			*/
@@ -75,7 +75,7 @@ public class TestGoogleAPI {
 
 
 		} catch (IOException e) {
-			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
+			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
 			e.printStackTrace();
 		}
 		return str;

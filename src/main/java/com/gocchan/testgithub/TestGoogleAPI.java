@@ -16,14 +16,17 @@ public class TestGoogleAPI {
 
     	String out = "";
 		try {
-    		String enc_hiragana = URLEncoder.encode(str,"utf-8");
-
+    		//String enc_hiragana = URLEncoder.encode(str,"UTF-8");
+			String enc_hiragana = URLEncoder.encode(str,"Shift_JIS");
     		HttpURLConnection conn = null;
     		conn = (HttpURLConnection) new URL(API_URL + enc_hiragana).openConnection();
     		//conn = (HttpURLConnection) new URL(API_URL + enc_hiragana + "&charset=UTF-8").openConnection();
 
     		conn.setRequestMethod("GET");
-    		conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+    		//conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+    		conn.setRequestProperty("Content-Type", "application/json; charset=Shift_JIS");
+
+
     		conn.connect();
 
 			if(conn.getResponseCode() == HttpURLConnection.HTTP_OK){

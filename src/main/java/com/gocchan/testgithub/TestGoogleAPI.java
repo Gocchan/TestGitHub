@@ -14,6 +14,17 @@ public class TestGoogleAPI {
 
     public static String convert(String str) {
 
+    	// 送信するかな文字が53字を超えるとエラー
+    	if(str.length() > 53) {
+
+    		//この場合、句読点や空白で２つに分けれないかやってみる
+
+
+
+    		System.out.print("WIRNING !!! ");
+    	}
+    	System.out.println("文字数：" + str.length());
+
     	String out = "";
 		try {
     		String enc_hiragana = URLEncoder.encode(str,"UTF-8");
@@ -73,12 +84,19 @@ public class TestGoogleAPI {
 
     			}
     			*/
-    			return out;
+
+    			if(out.length() > 0){
+    				// からじゃなければ（文字数オーバー時は空となる）
+    				return out.toString();
+
+    			}
     		}
 
 
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
+
+			System.out.println("***");
 			e.printStackTrace();
 		}
 		return str;

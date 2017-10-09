@@ -226,7 +226,7 @@ public class TestJapanese {
 
 			if(java.lang.Character.isLowerCase(in.charAt(i))) {
 
-				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
+				System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
 				if(BOIN.contains(now)) {
 
 					// *** ここいら辺まとめないと・・・ ***
@@ -236,9 +236,11 @@ public class TestJapanese {
 					if(cnt > 3) {
 
 						int cutting = cnt - 3; // はみ出た分
+						System.out.println("buf：" + buf);
+						System.out.println("おさき：" + buf.substring(0, cutting + 1));
+						System.out.println("cutting：" + cutting);
 
-
-						out += buf.substring(0, cutting + 1); // 1文字目から1文字
+						out += buf.substring(0, cutting); // 1文字目から1文字
 						buf = buf.substring(cutting); // 残す分（3文字）
 						cnt = 3;
 					}
@@ -295,12 +297,16 @@ public class TestJapanese {
 							out += buf.substring(0, 1); // 1文字目から1文字
 						}
 					}
-					
+
 					out += ROMAN(0).get("").get(BOIN.indexOf(now));
 					cnt = 0;
 					buf = "";
 
 				} else {
+
+
+
+
 
 					if(buf.equals("n")) {
 						if(!now.equals("y")) {
@@ -315,6 +321,8 @@ public class TestJapanese {
 								buf = now;
 							}
 						} else {
+
+
 							// にゃ にゅ にょ対応
 							buf += now;
 							cnt++;

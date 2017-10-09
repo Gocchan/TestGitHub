@@ -300,12 +300,23 @@ public class TestJapanese {
 
 				} else {
 
+					if(buf.equals("ny")) {
 
+						// にゃ にゅ にょ対応2
+						out += buf;
+						buf = now;
+						cnt = 1;
 
+					} else if(buf.equals("n")) {
 
+						if(now.equals("y")) {
 
-					if(buf.equals("n")) {
-						if(!now.equals("y")) {
+							// にゃ にゅ にょ対応1
+							buf += now;
+							cnt++;
+
+						} else {
+
 							out += "ん";
 							if(now.equals("n")) {
 								buf = "";
@@ -316,12 +327,7 @@ public class TestJapanese {
 							} else {
 								buf = now;
 							}
-						} else {
 
-
-							// にゃ にゅ にょ対応
-							buf += now;
-							cnt++;
 						}
 
 					} else {

@@ -60,6 +60,7 @@ public class TestGoogleAPI {
     			//[["ここでは",["ここでは","個々では","ココでは","此 処では","ココデは"]],["きものを",["着物を","きものを","キモノを","被物を","木ものを"]],["ぬぐ",["脱ぐ","ぬぐ","ヌグ","拭","揩"]]]
 
 
+    			System.out.println(fromStr);
     			while ((p = fromStr.indexOf("\",[\"")) != -1){
 
     	        	fromStr = fromStr.substring(p + 4);

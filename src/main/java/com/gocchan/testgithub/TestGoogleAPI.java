@@ -107,8 +107,8 @@ public class TestGoogleAPI {
     			//[["ここでは",["ここでは","個々では","ココでは","此 処では","ココデは"]],["きものを",["着物を","きものを","キモノを","被物を","木ものを"]],["ぬぐ",["脱ぐ","ぬぐ","ヌグ","拭","揩"]]]
     			//kokodehakimonowonugimasu.
 
-    			long start;
-    			long end;
+    			//long start;
+    			//long end;
      			//System.out.println(fromStr);
 
      			/*
@@ -117,12 +117,12 @@ public class TestGoogleAPI {
     			end = System.currentTimeMillis();
     			System.out.println((end - start)  + "ms");
 				*/
-     			start = System.currentTimeMillis();
+     			//start = System.currentTimeMillis();
      			out = edtJson(json);
     			//out = edtJson2(fromStr);
 
-    			end = System.currentTimeMillis();
-    			System.out.println((end - start)  + "ms");
+    			//end = System.currentTimeMillis();
+    			//System.out.println((end - start)  + "ms");
     			/*
      			start = System.currentTimeMillis();
     			System.out.println("Json Test 01:" + edtJson(fromStr));

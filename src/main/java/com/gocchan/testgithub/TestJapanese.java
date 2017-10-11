@@ -1,6 +1,9 @@
 package com.gocchan.testgithub;
 
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TestJapanese {
 
@@ -15,20 +18,43 @@ public class TestJapanese {
 
     public String toKana(String in) {
 
-    	// ""
+    	// "atsushi"sann "AGOTO"ttehitoha douitujinnbutudesuka?
+
+    	List<String> english = new ArrayList<String>();
+    	english.clear();
+
+    	String regex = "\"([a-zA-Z0-9 ,.!#$%&'*+/=?^_`{|}~-]+)\"";
+
+    	Pattern p = Pattern.compile(regex);
+    	Matcher m = p.matcher(in);
+
+    	String wrk = "";
+    	int loc = 0;
+    	while (m.find()){
+    		if(m.start() > loc) {
+    			wrk += in.substring(loc, m.start());
+    		}
+    		wrk += "★";
+    		loc = m.end();
+
+    		english.add(in.substring(m.start()+1, m.end()-1));
+    	}
+    	if(in.length() > loc) {
+    		wrk += in.substring(loc);
+    	}
 
 		String now;
-
+		System.out.println("List:" + english.toString());
     	editer edt = new editer();
 
     	edt.cnt = 0;
     	edt.buf = "";
     	edt.out = "";
 
-		for(int i = 0; i < in.length(); i++) {
+		for(int i = 0; i < wrk.length(); i++) {
 
-			now = in.substring(i,i+1); // i文字目から1文字
-			char c = in.charAt(i);
+			now = wrk.substring(i,i+1); // i文字目から1文字
+			char c = wrk.charAt(i);
 			if(c == '\'' || java.lang.Character.isLowerCase(c)) {
 
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
@@ -79,6 +105,21 @@ public class TestJapanese {
 
 		edt.out += edt.buf;
 
+		// リストを戻す
+		regex = "★";
+		p = Pattern.compile(regex);
+		m = p.matcher(edt.out);
+
+    	wrk = "";
+    	int cnt = 0;
+    	for(String substr : p.split(edt.out)) {
+    		wrk += substr;
+    		if(cnt < english.size()) {
+    			wrk += english.get(cnt);
+    			cnt++;
+    		}
+    	}
+    	edt.out = wrk;
 
 		/*
     	String str = "";
@@ -105,7 +146,7 @@ public class TestJapanese {
     	if(edt.out.length() < 5) {
     		return edt.out + " (" + in + ")";
     	} else {
-    		return hGoogle.convert(edt.out + "★") + " (" + in + ")";
+    		return hGoogle.convert(edt.out) + " (" + in + ")";
     	}
     }
 

@@ -7,8 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.JsonNode;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TestGoogleAPI {
 
@@ -62,10 +62,20 @@ public class TestGoogleAPI {
     		//この場合、句読点や空白で２つに分けれないかやってみる
 
 
+    		//watashinoienihaittaratoumeininngenndakaraanatahananndemoshitemokizukarenaidemohenntainokimochidyatteitte
+    		System.out.print("WIRNING !!! 文字数：" + str.length());
 
-    		System.out.print("WIRNING !!! ");
+
+			//out += buf.substring(0, cutting); // 1文字目からはみ出た分まで
+			//buf = buf.substring(cutting); // 残す分（3文字）
+
+
+    		return (getGoogleKana(str.substring(0, 53)) + "★" + getGoogleKana(str.substring(53-20)));
     	}
-    	//System.out.println("文字数：" + str.length());
+    	return getGoogleKana(str);
+    }
+
+    private String getGoogleKana(String str) {
 
     	String out = "";
 		try {
@@ -74,17 +84,14 @@ public class TestGoogleAPI {
     		HttpURLConnection conn = null;
 
     		conn = (HttpURLConnection) new URL(API_URL + enc_hiragana + "&charset=UTF-8").openConnection();
-
     		conn.setRequestMethod("GET");
-    		//conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-    		conn.setRequestProperty("Content-Type", "application/json; charset=Shift_JIS");
-
-
+    		conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
     		conn.connect();
 
 			if(conn.getResponseCode() == HttpURLConnection.HTTP_OK){
 
-    			StringBuffer responseJSON = new StringBuffer();
+    			//StringBuffer responseJSON = new StringBuffer();
+				String json = "";
 
     			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -92,18 +99,16 @@ public class TestGoogleAPI {
 
     			while ((inputLine = reader.readLine()) != null) {
     				//responseJSON.append(inputLine.substring(0, inputLine.indexOf("\t")));
-                    responseJSON.append(inputLine);
-
+                    //responseJSON.append(inputLine);
+    				json += inputLine;
                 }
 
-
-
-    			String fromStr = responseJSON.toString();
+    			//String fromStr = responseJSON.toString();
     			//[["ここでは",["ここでは","個々では","ココでは","此 処では","ココデは"]],["きものを",["着物を","きものを","キモノを","被物を","木ものを"]],["ぬぐ",["脱ぐ","ぬぐ","ヌグ","拭","揩"]]]
     			//kokodehakimonowonugimasu.
 
-    			//long start;
-    			//long end;
+    			long start;
+    			long end;
      			//System.out.println(fromStr);
 
      			/*
@@ -112,8 +117,12 @@ public class TestGoogleAPI {
     			end = System.currentTimeMillis();
     			System.out.println((end - start)  + "ms");
 				*/
+     			start = System.currentTimeMillis();
+     			out = edtJson(json);
+    			//out = edtJson2(fromStr);
 
-    			out = edtJson2(fromStr);
+    			end = System.currentTimeMillis();
+    			System.out.println((end - start)  + "ms");
     			/*
      			start = System.currentTimeMillis();
     			System.out.println("Json Test 01:" + edtJson(fromStr));
@@ -129,16 +138,16 @@ public class TestGoogleAPI {
     			}
     		}
 
-
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 
 			//System.out.println("***");
 			e.printStackTrace();
 		}
-		return str;
+		return out;
     }
 
+    /*
     private String edtJson(String json) {
     	String str = "";
     	try {
@@ -153,8 +162,8 @@ public class TestGoogleAPI {
 	    }
     	return str;
 	}
-
-    private String edtJson2(String json) {
+	*/
+    private String edtJson(String json) {
 
     	int p;
     	String str = "";

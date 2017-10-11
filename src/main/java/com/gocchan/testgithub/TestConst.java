@@ -33,7 +33,10 @@ public class TestConst {
     		put("j", Arrays.asList("じゃ", "じ", "じゅ", "じぇ", "じょ"));
     		put("f", Arrays.asList("ふぁ", "ふぃ", "ふ", "ふぇ", "ふぉ"));
     		put("x", Arrays.asList("ぁ", "ぃ", "ぅ", "ぇ", "ぉ"));
-    		put("v", Arrays.asList("ヴぁ", "ヴぃ", "ヴ", "ヴぇ", "ヴぉ"));
+    		//put("v", Arrays.asList("ヴぁ", "ヴぃ", "ヴ", "ヴぇ", "ヴぉ"));
+
+    		// ↓ のほうがGoogle API にて "エヴァンゲリオン"と正しく変換されるため。
+    		put("v", Arrays.asList("ゔぁ", "ゔぃ", "ゔ", "ゔぇ", "ゔぉ"));
     		put("q", Arrays.asList("くぁ", "くぃ", "く", "くぇ", "くぉ"));
     		put("l", Arrays.asList("ぁ", "ぃ", "ぅ" , "ぇ" , "ぉ"));
     		put("c", Arrays.asList("か", "し", "く", "せ", "こ"));
@@ -65,7 +68,8 @@ public class TestConst {
 	    	put("xy", Arrays.asList("ゃ", "ぃ", "ゅ", "ぇ", "ょ"));
 	    	put("xw", Arrays.asList("ゎ", "", "", "", ""));
 	    	put("wh", Arrays.asList("うぁ", "うぃ", "う", "うぇ", "うぉ"));
-	    	put("vy", Arrays.asList("ヴゃ", "ヴぃ", "ヴゅ", "ヴぇ", "ヴょ"));
+	    	//put("vy", Arrays.asList("ヴゃ", "ヴぃ", "ヴゅ", "ヴぇ", "ヴょ"));
+	    	put("vy", Arrays.asList("ゔゃ", "ゔぃ", "ゔゅ", "ゔぇ", "ゔょ"));
 	    	put("kw", Arrays.asList("くぁ", "くぃ", "くぅ", "くぇ", "くぉ"));
 	    	put("gw", Arrays.asList("ぐぁ", "ぐぃ", "ぐぅ", "ぐぇ", "ぐぉ"));
 	    	put("jy", Arrays.asList("じゃ", "じぃ", "じゅ", "じぇ", "じょ"));

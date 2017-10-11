@@ -7,12 +7,54 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class TestGoogleAPI {
 
 	private static final String API_URL = "http://www.google.com/transliterate?langpair=ja-Hira|ja&text=";
 
 
-    public static String convert(String str) {
+    public String convert(String str) {
+
+    	String test = "";
+		long start;
+		long end;
+
+
+
+		/*
+
+    	// map速度計測 772ms
+		test = "";
+		start = System.currentTimeMillis();
+    	for(int i=1; i<=30000; i++) {
+			if(TestConst.ZENKAKU.containsKey('[')) {
+				test += TestConst.ZENKAKU.get('[');
+			}
+    	}
+		end = System.currentTimeMillis();
+		System.out.println((end - start)  + "ms");
+
+    	// 配列速度計測
+		test = "";
+		start = System.currentTimeMillis();
+    	for(int i=1; i<=30000; i++) {
+    		for(int idx=0; idx < TestConst.hairetuZENKAKU[0].length; idx++) {
+				if(TestConst.hairetuZENKAKU[0][idx] == '[') {
+					test += TestConst.hairetuZENKAKU[1][idx];
+				}
+    		}
+    	}
+		end = System.currentTimeMillis();
+		System.out.println((end - start)  + "ms");
+
+
+
+
+		System.out.println("=========================================");
+
+		*/
 
     	// 送信するかな文字が53字を超えるとエラー
     	if(str.length() > 53) {
@@ -23,7 +65,7 @@ public class TestGoogleAPI {
 
     		System.out.print("WIRNING !!! ");
     	}
-    	System.out.println("文字数：" + str.length());
+    	//System.out.println("文字数：" + str.length());
 
     	String out = "";
 		try {
@@ -55,39 +97,33 @@ public class TestGoogleAPI {
                 }
 
 
-    			int p;
+
     			String fromStr = responseJSON.toString();
     			//[["ここでは",["ここでは","個々では","ココでは","此 処では","ココデは"]],["きものを",["着物を","きものを","キモノを","被物を","木ものを"]],["ぬぐ",["脱ぐ","ぬぐ","ヌグ","拭","揩"]]]
+    			//kokodehakimonowonugimasu.
 
+    			//long start;
+    			//long end;
+     			//System.out.println(fromStr);
 
-    			System.out.println(fromStr);
-    			while ((p = fromStr.indexOf("\",[\"")) != -1){
+     			/*
+     			start = System.currentTimeMillis();
+    			System.out.println("Json Test 02:" + edtJson2(fromStr));
+    			end = System.currentTimeMillis();
+    			System.out.println((end - start)  + "ms");
+				*/
 
-    	        	fromStr = fromStr.substring(p + 4);
-    	        	String wrk = fromStr.substring(0, fromStr.indexOf("\""));
-    	        	wrk = wrk.replaceAll("（", " (");
-    	        	wrk = wrk.replaceAll("）", ") ");
-
-    	        	//str.append(wrk);
-    	        	out += wrk;
-    	        }
-
-    			//str.append(fromStr);
+    			out = edtJson2(fromStr);
     			/*
-    			for(Entry<String, String> e : G_DICTIONARY.entrySet()) {
+     			start = System.currentTimeMillis();
+    			System.out.println("Json Test 01:" + edtJson(fromStr));
+    			end = System.currentTimeMillis();
+    			System.out.println((end - start)  + "ms");
+				*/
 
-    				str = str.replaceAll(e.getKey(), e.getValue());
-
-    			}
-
-    			if(str.length() > 0){
-    				return str.toString();z
-
-    			}
-    			*/
 
     			if(out.length() > 0){
-    				// からじゃなければ（文字数オーバー時は空となる）
+    				// 空じゃなければ（エラー時＆文字数オーバー時は空となる）
     				return out.toString();
 
     			}
@@ -97,17 +133,41 @@ public class TestGoogleAPI {
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 
-			System.out.println("***");
+			//System.out.println("***");
 			e.printStackTrace();
 		}
 		return str;
-
-
-
-
-
-
-
-
     }
+
+    private String edtJson(String json) {
+    	String str = "";
+    	try {
+	    	ObjectMapper mapper = new ObjectMapper();
+	    	JsonNode root = mapper.readTree(json);
+	    	for(JsonNode n : root) {
+	    		str += n.get(1).get(0).asText();
+	    	}
+
+    	}catch (IOException ioe) {
+	    	ioe.printStackTrace();
+	    }
+    	return str;
+	}
+
+    private String edtJson2(String json) {
+
+    	int p;
+    	String str = "";
+		while ((p = json.indexOf("\",[\"")) != -1){	// ",[" が見つからなくなるまで（漢字候補の先頭を表す文字列）
+
+			json = json.substring(p + 4);
+        	String wrk = json.substring(0, json.indexOf("\""));
+        	wrk = wrk.replaceAll("（", " (");
+        	wrk = wrk.replaceAll("）", ") ");
+
+        	//str.append(wrk);
+        	str += wrk;
+        }
+    	return str;
+	}
 }

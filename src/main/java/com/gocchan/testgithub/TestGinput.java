@@ -8,7 +8,17 @@ import java.util.regex.Pattern;
 
 public class TestGinput {
 
-	public static void getInput() {
+	final private TestGithub hGithub;
+	final private TestJapanese hJapanese;
+
+	public TestGinput(final TestGithub hGithub){
+
+		this.hGithub = hGithub;
+		this.hJapanese = hGithub.getJapaneseHandler();
+	}
+
+
+	public void getInput() {
 
 		String str = null;
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +41,7 @@ public class TestGinput {
 	}
 
 	// コマンドチェック
-	private static String changeLine(String str) {
+	private String changeLine(String str) {
 
 		if(str.isEmpty()) return "";
 
@@ -44,12 +54,14 @@ public class TestGinput {
 		} else if(isURL(str) || isEmail(str)) {
 			return "URL:" + str;
 		}
-		return TestJapanese.toKana(str);
+		
+		
+		return hJapanese.toKana(str);
 
 	}
 
 	// 1バイト文字のみかどうか
-	public static boolean isOneByteChar(String str) {
+	public boolean isOneByteChar(String str) {
 
 		if(str == null || str.length() == 0){
 			return true;
@@ -66,7 +78,7 @@ public class TestGinput {
 	}
 
 	// URLかどうか
-	private static boolean isURL(String str) {
+	private boolean isURL(String str) {
 
 		// http://www.sejuku.net/blog/13215#URL
 		// https://qiita.com/konweb/items/97cccb28973aefe4b0c6
@@ -80,7 +92,7 @@ public class TestGinput {
 	}
 
 	// メールアドレスかどうか
-	private static boolean isEmail(String str) {
+	private boolean isEmail(String str) {
 
 		// http://www.sejuku.net/blog/13215#URL
 		// https://qiita.com/konweb/items/97cccb28973aefe4b0c6

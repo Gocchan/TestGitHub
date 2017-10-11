@@ -1,8 +1,22 @@
 package com.gocchan.testgithub;
 
+
+
 public class TestJapanese {
 
-    public static String toKana(String in) {
+
+	final private TestGithub hGithub;
+	final private TestGoogleAPI hGoogle;
+
+	public TestJapanese(final TestGithub hGithub){
+
+		this.hGithub = hGithub;
+		this.hGoogle = hGithub.getGoogleHandler();
+
+
+	}
+
+    public String toKana(String in) {
 
 		String out = "";
 		String now;
@@ -12,8 +26,8 @@ public class TestJapanese {
 		for(int i = 0; i < in.length(); i++) {
 
 			now = in.substring(i,i+1); // i文字目から1文字
-
-			if(java.lang.Character.isLowerCase(in.charAt(i))) {
+			char c = in.charAt(i);
+			if(c == '\'' || java.lang.Character.isLowerCase(c)) {
 
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
 				if(TestConst.BOIN.contains(now)) {
@@ -188,11 +202,11 @@ public class TestJapanese {
     		}
 
     	}
-		return TestGoogleAPI.convert(str) + " (" + in + ")";
+		return hGoogle.convert(str) + " (" + in + ")";
 
     }
 
-    private static String getRomaji (int keylen, String key, String boin) {
+    private String getRomaji (int keylen, String key, String boin) {
 
     	if(TestConst.ROMAN(keylen).containsKey(key)) {
     		return TestConst.ROMAN(keylen).get(key).get(TestConst.BOIN.indexOf(boin));
@@ -200,7 +214,7 @@ public class TestJapanese {
     	return "";
     }
 
-    private static boolean isXtu (int cnt, String buf) {
+    private boolean isXtu (int cnt, String buf) {
 
     	// 小さい "っ" 対策
     	switch(cnt) {

@@ -18,43 +18,24 @@ public class TestJapanese {
 
     public String toKana(String in) {
 
-    	// "atsushi"sann "AGOTO"ttehitoha douitujinnbutudesuka?
+    	// "atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
 
-    	List<String> english = new ArrayList<String>();
-    	english.clear();
-
-    	String regex = "\"([a-zA-Z0-9 ,.!#$%&'*+/=?^_`{|}~-]+)\"";
-
-    	Pattern p = Pattern.compile(regex);
-    	Matcher m = p.matcher(in);
-
-    	String wrk = "";
-    	int loc = 0;
-    	while (m.find()){
-    		if(m.start() > loc) {
-    			wrk += in.substring(loc, m.start());
-    		}
-    		wrk += "★";
-    		loc = m.end();
-
-    		english.add(in.substring(m.start()+1, m.end()-1));
-    	}
-    	if(in.length() > loc) {
-    		wrk += in.substring(loc);
-    	}
+    	// 英語を伏字に
+    	leaveGoogle clsLeave = new leaveGoogle();
+    	clsLeave = encodeLeave(in);
 
 		String now;
-		System.out.println("List:" + english.toString());
+		System.out.println("List:" + clsLeave.englishes.toString());
     	editer edt = new editer();
 
     	edt.cnt = 0;
     	edt.buf = "";
     	edt.out = "";
 
-		for(int i = 0; i < wrk.length(); i++) {
+		for(int i = 0; i < clsLeave.japanese.length(); i++) {
 
-			now = wrk.substring(i,i+1); // i文字目から1文字
-			char c = wrk.charAt(i);
+			now = clsLeave.japanese.substring(i,i+1); // i文字目から1文字
+			char c = clsLeave.japanese.charAt(i);
 			if(c == '\'' || java.lang.Character.isLowerCase(c)) {
 
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
@@ -105,49 +86,48 @@ public class TestJapanese {
 
 		edt.out += edt.buf;
 
-		// リストを戻す
-		regex = "★";
-		p = Pattern.compile(regex);
-		m = p.matcher(edt.out);
 
-    	wrk = "";
-    	int cnt = 0;
-    	for(String substr : p.split(edt.out)) {
-    		wrk += substr;
-    		if(cnt < english.size()) {
-    			wrk += english.get(cnt);
-    			cnt++;
-    		}
+		// 伏字にした英語を戻す
+		clsLeave.japanese = edt.out;
+		edt.out = decodeLeave(clsLeave);
+
+
+
+		// 半角を全角に
+    	System.out.println("記号変換前：" + edt.out);
+    	String str = toZenkaku(edt.out);
+
+
+    	//a,"atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
+    	System.out.println("渡す前：" + str);
+    	// とりま５文字未満の時はひらがなのまま出力（変な漢字のとき、後ろの分がないと意味を予測できないため）
+    	if(str.length() < 5) {
+    		return str + " (" + in + ")";
+    	} else {
+    		return hGoogle.convert(str) + " (" + in + ")";
     	}
-    	edt.out = wrk;
+    }
 
-		/*
-    	String str = "";
+    private String toZenkaku (String str) {
 
-    	for(int i=0; i < edt.out.length(); i++) {
+    	String wrk = "";
+    	for(int i=0; i < str.length(); i++) {
 
-    		String s = edt.out.substring(i, i + 1);
+    		String s = str.substring(i, i + 1);
     		if(s.getBytes().length > 1) {
 
-    			str += s;
+    			wrk += s;
 
     		} else {
-    			char c = edt.out.charAt(i);
+    			char c = str.charAt(i);
     			if(TestConst.ZENKAKU.containsKey(c)) {
-    				str += TestConst.ZENKAKU.get(c);
+    				wrk += TestConst.ZENKAKU.get(c);
     			} else {
-    				str += c;
+    				wrk += c;
     			}
     		}
     	}
-		*/
-
-    	// とりま５文字未満の時はひらがなのまま出力（変な漢字のとき、後ろの分がないと意味を予測できないため）
-    	if(edt.out.length() < 5) {
-    		return edt.out + " (" + in + ")";
-    	} else {
-    		return hGoogle.convert(edt.out) + " (" + in + ")";
-    	}
+		return wrk;
     }
 
     private String getRomaji (int keylen, String key, String boin) {
@@ -250,11 +230,70 @@ public class TestJapanese {
 		edt.buf = "";
 		return edt;
     }
+    private String decodeLeave(leaveGoogle leave) {
+
+    	String regex = "★";
+    	Pattern p = Pattern.compile(regex);
+    	//Matcher m = p.matcher(leave.japanese);
+
+    	String wrk = "";
+    	int cnt = 0;
+    	for(String substr : p.split(leave.japanese)) {
+    		wrk += substr;
+    		if(cnt < leave.englishes.size()) {
+    			wrk += leave.englishes.get(cnt);
+    			cnt++;
+    		}
+    	}
+
+    	return wrk;
+    }
+
+    private leaveGoogle encodeLeave(String in) {
+
+    	List<String> english = new ArrayList<String>();
+    	leaveGoogle leave = new leaveGoogle();
+
+    	// https://qiita.com/sta/items/848e7a8c4699a59c604f
+    	// " は要らない
+    	//
+    	//String regex = "\"([a-zA-Z0-9 !\"#$%&'()*+,-./:;<=>?@\\[\\\\\\\\\\]^_`{|}~]+)\"";
+    	String regex = "\"([a-zA-Z0-9 !#$%&'()*+,-./:;<=>?@\\[\\\\\\\\\\]^_`{|}~]+)\"";
+
+    	//  "atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
+    	Pattern p = Pattern.compile(regex);
+    	Matcher m = p.matcher(in);
+
+    	String wrk = "";
+    	int loc = 0;
+    	while (m.find()){
+    		if(m.start() > loc) {
+    			wrk += in.substring(loc, m.start());
+    		}
+    		wrk += "★";
+    		loc = m.end();
+
+    		english.add(in.substring(m.start()+1, m.end()-1));
+    	}
+    	if(in.length() > loc) {
+    		wrk += in.substring(loc);
+    	}
+
+    	leave.englishes = english;
+    	leave.japanese = wrk;
+
+		return leave;
+    }
 
     private static class editer {
 
     	private int cnt;
     	private String buf;
     	private String out;
+    }
+
+    private static class leaveGoogle {
+    	private String japanese;
+    	private List<String> englishes;
     }
 }

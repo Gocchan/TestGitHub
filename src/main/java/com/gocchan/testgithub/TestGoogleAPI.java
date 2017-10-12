@@ -165,6 +165,7 @@ public class TestGoogleAPI {
 	*/
     private String edtJson(String json) {
 
+
     	int p;
     	String str = "";
 		while ((p = json.indexOf("\",[\"")) != -1){	// ",[" が見つからなくなるまで（漢字候補の先頭を表す文字列）

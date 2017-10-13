@@ -9,7 +9,7 @@ public class TestGithub {
 
 	public static void main(String args[]) {
 
-		// é †ç•ªå¤§äº‹ï¼
+		// ‡”Ô‘å–I
 		hGithub = new TestGithub();
 		hGoogle = new TestGoogleAPI();
 		hJapanese = new TestJapanese(hGithub);

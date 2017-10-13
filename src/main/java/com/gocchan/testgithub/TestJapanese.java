@@ -20,7 +20,7 @@ public class TestJapanese {
 
     	// "atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
 
-    	// ‰pŒê‚ğ•šš‚É
+    	// è‹±èªã‚’ä¼å­—ã«
     	leaveGoogle clsLeave = new leaveGoogle();
     	clsLeave = encodeLeave(in);
 
@@ -34,19 +34,19 @@ public class TestJapanese {
 
 		for(int i = 0; i < clsLeave.japanese.length(); i++) {
 
-			now = clsLeave.japanese.substring(i,i+1); // i•¶š–Ú‚©‚ç1•¶š
+			now = clsLeave.japanese.substring(i,i+1); // iæ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
 			char c = clsLeave.japanese.charAt(i);
 			if(c == '\'' || java.lang.Character.isLowerCase(c)) {
 
 				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
 				if(TestConst.BOIN.contains(now)) {
 
-					// ƒoƒbƒtƒ@[3•¶š‰z‚¦‘Îô
-					// ŒŸõ‚Íƒoƒbƒtƒ@[‚ª3•¶šˆÈ‰º‘ÎÛ‚È‚Ì‚Å‚Í‚İo‚µ‚½•ª‚ğæ‚É‘—‚èo‚·
+					// ãƒãƒƒãƒ•ã‚¡ãƒ¼3æ–‡å­—è¶Šãˆå¯¾ç­–
+					// æ¤œç´¢ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ãŒ3æ–‡å­—ä»¥ä¸‹å¯¾è±¡ãªã®ã§ã¯ã¿å‡ºã—ãŸåˆ†ã‚’å…ˆã«é€ã‚Šå‡ºã™
 					if(edt.cnt > 3) {
 						edt = pushBuffer(edt);
 					}
-					// Œ¸‚ç‚µ‚Ä‚¢‚«‚È‚ª‚çŒŸõ‚·‚é‚±‚ÆI
+					// æ¸›ã‚‰ã—ã¦ã„ããªãŒã‚‰æ¤œç´¢ã™ã‚‹ã“ã¨ï¼
 					edt = serchROMAN(edt, now);
 
 				} else {
@@ -67,11 +67,11 @@ public class TestJapanese {
 					}
 				}
 			} else {
-				// ”¼Šp‰p¬•¶šˆÈŠO
+				// åŠè§’è‹±å°æ–‡å­—ä»¥å¤–
 
-				// c‚è ‚ñ ‘Îô2
+				// æ®‹ã‚Š ã‚“ å¯¾ç­–2
 				if(edt.buf.equals("n")) {
-					edt.buf = "‚ñ";
+					edt.buf = "ã‚“";
 				}
 				edt.out += edt.buf + now;
 				edt.cnt = 0;
@@ -79,28 +79,28 @@ public class TestJapanese {
 			}
 		}
 
-		// c‚è ‚ñ ‘Îô‚P
+		// æ®‹ã‚Š ã‚“ å¯¾ç­–ï¼‘
 		if(edt.buf.equals("n")) {
-			edt.buf = "‚ñ";
+			edt.buf = "ã‚“";
 		}
 
 		edt.out += edt.buf;
 
 
-		// •šš‚É‚µ‚½‰pŒê‚ğ–ß‚·
+		// ä¼å­—ã«ã—ãŸè‹±èªã‚’æˆ»ã™
 		clsLeave.japanese = edt.out;
 		edt.out = decodeLeave(clsLeave);
 
 
 
-		// ”¼Šp‚ğ‘SŠp‚É
-    	System.out.println("‹L†•ÏŠ·‘OF" + edt.out);
+		// åŠè§’ã‚’å…¨è§’ã«
+    	System.out.println("è¨˜å·å¤‰æ›å‰ï¼š" + edt.out);
     	String str = toZenkaku(edt.out);
 
 
     	//a,"atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
-    	System.out.println("“n‚·‘OF" + str);
-    	// ‚Æ‚è‚Ü‚T•¶š–¢–‚Ì‚Í‚Ğ‚ç‚ª‚È‚Ì‚Ü‚Üo—Íi•Ï‚ÈŠ¿š‚Ì‚Æ‚«AŒã‚ë‚Ì•ª‚ª‚È‚¢‚ÆˆÓ–¡‚ğ—\‘ª‚Å‚«‚È‚¢‚½‚ßj
+    	System.out.println("æ¸¡ã™å‰ï¼š" + str);
+    	// ã¨ã‚Šã¾ï¼•æ–‡å­—æœªæº€ã®æ™‚ã¯ã²ã‚‰ãŒãªã®ã¾ã¾å‡ºåŠ›ï¼ˆå¤‰ãªæ¼¢å­—ã®ã¨ãã€å¾Œã‚ã®åˆ†ãŒãªã„ã¨æ„å‘³ã‚’äºˆæ¸¬ã§ããªã„ãŸã‚ï¼‰
     	if(str.length() < 5) {
     		return str + " (" + in + ")";
     	} else {
@@ -140,7 +140,7 @@ public class TestJapanese {
     //
     private boolean isXtu (int cnt, String buf) {
 
-    	// ¬‚³‚¢ "‚Á" ‘Îô
+    	// å°ã•ã„ "ã£" å¯¾ç­–
     	switch(cnt) {
 			case 3:
 				if(buf.charAt(0) == buf.charAt(1)
@@ -164,9 +164,9 @@ public class TestJapanese {
 
     private editer pushBuffer(editer edt) {
 
-		int cutting = edt.cnt - 3; // ‚Í‚İo‚½•ª
-		edt.out += edt.buf.substring(0, cutting); // 1•¶š–Ú‚©‚ç‚Í‚İo‚½•ª‚Ü‚Å
-		edt.buf = edt.buf.substring(cutting); // c‚·•ªi3•¶šj
+		int cutting = edt.cnt - 3; // ã¯ã¿å‡ºãŸåˆ†
+		edt.out += edt.buf.substring(0, cutting); // 1æ–‡å­—ç›®ã‹ã‚‰ã¯ã¿å‡ºãŸåˆ†ã¾ã§
+		edt.buf = edt.buf.substring(cutting); // æ®‹ã™åˆ†ï¼ˆ3æ–‡å­—ï¼‰
 		edt.cnt = 3;
 
 		return edt;
@@ -174,13 +174,13 @@ public class TestJapanese {
 
     private editer editNX(editer edt, String now) {
 		if(now.equals("y")) {
-			// ‚É‚á ‚É‚ã ‚É‚å‘Î‰1
+			// ã«ã‚ƒ ã«ã‚… ã«ã‚‡å¯¾å¿œ1
 			//edt.buf += now;
 			edt.buf = "ny";
 			edt.cnt++;
 		} else {
 
-			edt.out += "‚ñ";
+			edt.out += "ã‚“";
 			if(now.equals("n")) {
 				edt.buf = "";
 				edt.cnt = 0;
@@ -199,9 +199,9 @@ public class TestJapanese {
     	for(int i = 3; i > 0; i--) {
 
 			if(edt.cnt == i) {
-				// ¬‚³‚¢@‚Á@‘Î‰
+				// å°ã•ã„ã€€ã£ã€€å¯¾å¿œ
 				if((edt.cnt == 3 || edt.cnt == 2) && isXtu(edt.cnt, edt.buf)) {
-					edt.out += "‚Á";
+					edt.out += "ã£";
 					edt.cnt = edt.cnt-1;
 					edt.buf = edt.buf.substring(1);
 
@@ -216,10 +216,10 @@ public class TestJapanese {
 
 					} else {
 
-						// 1•¶šŒ¸‚ç‚·
-						edt.out += edt.buf.substring(0, 1); // 1•¶š–Ú‚©‚ç1•¶š
+						// 1æ–‡å­—æ¸›ã‚‰ã™
+						edt.out += edt.buf.substring(0, 1); // 1æ–‡å­—ç›®ã‹ã‚‰1æ–‡å­—
 						if(i != 1) {
-							edt.buf = edt.buf.substring(1); // c‚·•ª
+							edt.buf = edt.buf.substring(1); // æ®‹ã™åˆ†
 						}
 						edt.cnt = edt.cnt - 1;
 					}
@@ -232,7 +232,7 @@ public class TestJapanese {
     }
     private String decodeLeave(leaveGoogle leave) {
 
-    	String regex = "š";
+    	String regex = "â˜…";
     	Pattern p = Pattern.compile(regex);
     	//Matcher m = p.matcher(leave.japanese);
 
@@ -255,7 +255,7 @@ public class TestJapanese {
     	leaveGoogle leave = new leaveGoogle();
 
     	// https://qiita.com/sta/items/848e7a8c4699a59c604f
-    	// " ‚Í—v‚ç‚È‚¢
+    	// " ã¯è¦ã‚‰ãªã„
     	//
     	//String regex = "\"([a-zA-Z0-9 !\"#$%&'()*+,-./:;<=>?@\\[\\\\\\\\\\]^_`{|}~]+)\"";
     	String regex = "\"([a-zA-Z0-9 !#$%&'()*+,-./:;<=>?@\\[\\\\\\\\\\]^_`{|}~]+)\"";
@@ -270,7 +270,7 @@ public class TestJapanese {
     		if(m.start() > loc) {
     			wrk += in.substring(loc, m.start());
     		}
-    		wrk += "š";
+    		wrk += "â˜…";
     		loc = m.end();
 
     		english.add(in.substring(m.start()+1, m.end()-1));

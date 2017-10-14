@@ -25,7 +25,7 @@ public class TestGoogleAPI {
 
 		/*
 
-    	// map‘¬“xŒv‘ª 772ms
+    	// mapé€Ÿåº¦è¨ˆæ¸¬ 772ms
 		test = "";
 		start = System.currentTimeMillis();
     	for(int i=1; i<=30000; i++) {
@@ -36,7 +36,7 @@ public class TestGoogleAPI {
 		end = System.currentTimeMillis();
 		System.out.println((end - start)  + "ms");
 
-    	// ”z—ñ‘¬“xŒv‘ª
+    	// é…åˆ—é€Ÿåº¦è¨ˆæ¸¬
 		test = "";
 		start = System.currentTimeMillis();
     	for(int i=1; i<=30000; i++) {
@@ -56,21 +56,39 @@ public class TestGoogleAPI {
 
 		*/
 
-    	// ‘—M‚·‚é‚©‚È•¶š‚ª53š‚ğ’´‚¦‚é‚ÆƒGƒ‰[
+    	// é€ä¿¡ã™ã‚‹ã‹ãªæ–‡å­—ãŒ53å­—ã‚’è¶…ãˆã‚‹ã¨ã‚¨ãƒ©ãƒ¼
     	if(str.length() > 53) {
 
-    		//‚±‚Ìê‡A‹å“Ç“_‚â‹ó”’‚Å‚Q‚Â‚É•ª‚¯‚ê‚È‚¢‚©‚â‚Á‚Ä‚İ‚é
+    		//ã“ã®å ´åˆã€å¥èª­ç‚¹ã‚„ç©ºç™½ã§ï¼’ã¤ã«åˆ†ã‘ã‚Œãªã„ã‹ã‚„ã£ã¦ã¿ã‚‹
 
 
     		//watashinoienihaittaratoumeininngenndakaraanatahananndemoshitemokizukarenaidemohenntainokimochidyatteitte
-    		System.out.print("WIRNING !!! •¶š”F" + str.length());
+    		System.out.println("WIRNING !!! æ–‡å­—æ•°ï¼š" + str.length());
 
 
-			//out += buf.substring(0, cutting); // 1•¶š–Ú‚©‚ç‚Í‚İo‚½•ª‚Ü‚Å
-			//buf = buf.substring(cutting); // c‚·•ªi3•¶šj
+			//out += buf.substring(0, cutting); // 1æ–‡å­—ç›®ã‹ã‚‰ã¯ã¿å‡ºãŸåˆ†ã¾ã§
+			//buf = buf.substring(cutting); // æ®‹ã™åˆ†ï¼ˆ3æ–‡å­—ï¼‰
+
+    		int cnt = 0;
+    		int p = 0;
+
+    		while(p < str.length()) {
+    			cnt++;
+
+    			if(p+50 > str.length()) {
+    				System.out.println(cnt + "å›ç›®ï¼š" + (str.length() - 50) + "ï½" + (str.length()) + "ã¾ã§");
+    			} else {
+    				System.out.println(cnt + "å›ç›®ï¼š" + p + "ï½" + (p + 50) + "ã¾ã§");
+    			}
+    			p += 40; //40é€²ã‚ã‚‹
+
+    		}
 
 
-    		return (getGoogleKana(str.substring(0, 53)) + "š" + getGoogleKana(str.substring(53-20)));
+
+
+
+    		return (getGoogleKana(str.substring(0, 53)) + "â˜…" + getGoogleKana(str.substring(53-20)));
     	}
     	return getGoogleKana(str);
     }
@@ -104,7 +122,7 @@ public class TestGoogleAPI {
                 }
 
     			//String fromStr = responseJSON.toString();
-    			//[["‚±‚±‚Å‚Í",["‚±‚±‚Å‚Í","ŒÂX‚Å‚Í","ƒRƒR‚Å‚Í","Ÿ ˆ‚Å‚Í","ƒRƒRƒf‚Í"]],["‚«‚à‚Ì‚ğ",["’…•¨‚ğ","‚«‚à‚Ì‚ğ","ƒLƒ‚ƒm‚ğ","”í•¨‚ğ","–Ø‚à‚Ì‚ğ"]],["‚Ê‚®",["’E‚®","‚Ê‚®","ƒkƒO","@","‚"]]]
+    			//[["ã“ã“ã§ã¯",["ã“ã“ã§ã¯","å€‹ã€…ã§ã¯","ã‚³ã‚³ã§ã¯","æ­¤ å‡¦ã§ã¯","ã‚³ã‚³ãƒ‡ã¯"]],["ãã‚‚ã®ã‚’",["ç€ç‰©ã‚’","ãã‚‚ã®ã‚’","ã‚­ãƒ¢ãƒã‚’","è¢«ç‰©ã‚’","æœ¨ã‚‚ã®ã‚’"]],["ã¬ã",["è„±ã","ã¬ã","ãƒŒã‚°","æ‹­","æ©"]]]
     			//kokodehakimonowonugimasu.
 
     			//long start;
@@ -132,14 +150,14 @@ public class TestGoogleAPI {
 
 
     			if(out.length() > 0){
-    				// ‹ó‚¶‚á‚È‚¯‚ê‚ÎiƒGƒ‰[••¶š”ƒI[ƒo[‚Í‹ó‚Æ‚È‚éj
+    				// ç©ºã˜ã‚ƒãªã‘ã‚Œã°ï¼ˆã‚¨ãƒ©ãƒ¼æ™‚ï¼†æ–‡å­—æ•°ã‚ªãƒ¼ãƒãƒ¼æ™‚ã¯ç©ºã¨ãªã‚‹ï¼‰
     				return out.toString();
 
     			}
     		}
 
 		} catch (IOException e) {
-			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
 
 			//System.out.println("***");
 			e.printStackTrace();
@@ -167,12 +185,12 @@ public class TestGoogleAPI {
 
     	int p;
     	String str = "";
-		while ((p = json.indexOf("\",[\"")) != -1){	// ",[" ‚ªŒ©‚Â‚©‚ç‚È‚­‚È‚é‚Ü‚ÅiŠ¿šŒó•â‚Ìæ“ª‚ğ•\‚·•¶š—ñj
+		while ((p = json.indexOf("\",[\"")) != -1){	// ",[" ãŒè¦‹ã¤ã‹ã‚‰ãªããªã‚‹ã¾ã§ï¼ˆæ¼¢å­—å€™è£œã®å…ˆé ­ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼‰
 
 			json = json.substring(p + 4);
         	String wrk = json.substring(0, json.indexOf("\""));
-        	wrk = wrk.replaceAll("i", " (");
-        	wrk = wrk.replaceAll("j", ") ");
+        	wrk = wrk.replaceAll("ï¼ˆ", " (");
+        	wrk = wrk.replaceAll("ï¼‰", ") ");
 
         	//str.append(wrk);
         	str += wrk;

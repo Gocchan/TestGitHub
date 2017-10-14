@@ -32,13 +32,16 @@ public class TestJapanese {
     	edt.buf = "";
     	edt.out = "";
 
+
+
 		for(int i = 0; i < clsLeave.japanese.length(); i++) {
 
 			now = clsLeave.japanese.substring(i,i+1); // i文字目から1文字
 			char c = clsLeave.japanese.charAt(i);
+
 			if(c == '\'' || java.lang.Character.isLowerCase(c)) {
 
-				//System.out.println("cnt:" + cnt + ", buf=" + buf + ", now=" + now + ", out=" + out);
+				//System.out.println("cnt:" + edt.cnt + ", buf=" + edt.buf + ", now=" + now + ", out=" + edt.out);
 				if(TestConst.BOIN.contains(now)) {
 
 					// バッファー3文字越え対策
@@ -86,11 +89,11 @@ public class TestJapanese {
 
 		edt.out += edt.buf;
 
+		System.out.println("*" + edt.out + "*");
 
 		// 伏字にした英語を戻す
 		clsLeave.japanese = edt.out;
 		edt.out = decodeLeave(clsLeave);
-
 
 
 		// 半角を全角に
@@ -207,6 +210,8 @@ public class TestJapanese {
 
 				} else {
 
+
+
 					String romaji = getRomaji(edt.cnt, edt.buf, now);
 					if(!romaji.isEmpty()) {
 						edt.out += romaji;
@@ -266,7 +271,11 @@ public class TestJapanese {
 
     	String wrk = "";
     	int loc = 0;
+
+
     	while (m.find()){
+
+
     		if(m.start() > loc) {
     			wrk += in.substring(loc, m.start());
     		}
@@ -275,12 +284,18 @@ public class TestJapanese {
 
     		english.add(in.substring(m.start()+1, m.end()-1));
     	}
+
+
     	if(in.length() > loc) {
     		wrk += in.substring(loc);
     	}
 
+
+		System.out.println(wrk);
+
     	leave.englishes = english;
     	leave.japanese = wrk;
+
 
 		return leave;
     }

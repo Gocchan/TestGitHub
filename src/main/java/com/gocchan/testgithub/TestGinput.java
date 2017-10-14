@@ -18,15 +18,11 @@ public class TestGinput {
 
 	public void getInput() {
 
-		String str = null;
+		String str = "";
 	    //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	    Scanner stdIn = new Scanner(System.in);
-	    str = stdIn.next();
-
-
-
-
+    	str += stdIn.nextLine();
 
 	   // try{
 	    	//str = br.readLine();

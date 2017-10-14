@@ -71,24 +71,88 @@ public class TestGoogleAPI {
 
     		int cnt = 0;
     		int p = 0;
-
+    		String now = "";
+    		String buf = "";
+    		String key = "";
     		while(p < str.length()) {
     			cnt++;
 
     			if(p+50 > str.length()) {
-    				System.out.println(cnt + "回目：" + (str.length() - 50) + "～" + (str.length()) + "まで");
+    				//System.out.println(cnt + "回目：" + (str.length() - 50) + "～" + (str.length()) + "まで");
+
+
+    				now = getGoogleKana(str.substring(str.length() - 50));
+    				int len = 0;
+    				len = buf.length();
+    				key = buf.substring(len-8, len-4);
+
+    				if(findString(buf.substring(len-8), key) == 1 && findString(now, key) == 1) {
+    					buf = buf.substring(0, len-8) + now.substring(now.indexOf(key));
+    					//System.out.println(">>" + buf);
+    				} else {
+
+    					//System.out.println("１１１１１１１１１１１１１");
+    					/*
+    					System.out.println("P:" + p);
+    					System.out.println("KEY:" + key);
+    					System.out.println("L:" + buf.substring(len-10));
+    					System.out.println("R:" + now);
+						*/
+
+
+    					buf = str;
+    					break;
+    				}
+
+    				p = str.length();
     			} else {
-    				System.out.println(cnt + "回目：" + p + "～" + (p + 50) + "まで");
+    				now = getGoogleKana(str.substring(p, p + 50));
+    				if( cnt != 1) {
+
+	    				int len = 0;
+	    				len = buf.length();
+	    				key = buf.substring(len-8, len-4);
+
+
+
+	    				if(findString(buf.substring(len-8), key) == 1 && findString(now, key) == 1) {
+	    					buf = buf.substring(0, len-8) + now.substring(now.indexOf(key));
+	    					//System.out.println(">>" + buf);
+	    				} else {
+/*
+	    					System.out.println("１１１１１１１１１１１１１");
+
+	    					System.out.println("P:" + p);
+	    					System.out.println("KEY:" + key);
+	    					System.out.println("L:" + buf.substring(len-10));
+	    					System.out.println("R:" + now);
+*/
+
+	    					buf = str;
+	    					break;
+	    				}
+
+
+	    				//System.out.println(cnt + "回目：" + p + "～" + (p + 50) + "まで, キーワード：" + key);
+    				} else {
+    					buf = now;
+    				}
+        			p += 30; //30進める
+        			//
+
     			}
-    			p += 40; //40進める
+
+
+
+
 
     		}
 
 
+			//System.out.println("どうだい？：" + buf);
 
 
-
-    		return (getGoogleKana(str.substring(0, 53)) + "★" + getGoogleKana(str.substring(53-20)));
+    		return buf;
     	}
     	return getGoogleKana(str);
     }
@@ -197,4 +261,15 @@ public class TestGoogleAPI {
         }
     	return str;
 	}
+
+    private int findString(String str, String key) {
+
+    	int cnt = 0;
+    	int p = 0;
+    	while((p = str.indexOf(key)) != -1) {
+    		cnt++;
+    		str = str.substring(p + key.length());
+    	}
+    	return cnt;
+    }
 }

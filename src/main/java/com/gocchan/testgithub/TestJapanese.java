@@ -25,7 +25,7 @@ public class TestJapanese {
     	clsLeave = encodeLeave(in);
 
 		String now;
-		System.out.println("List:" + clsLeave.englishes.toString());
+		//System.out.println("List:" + clsLeave.englishes.toString());
     	editer edt = new editer();
 
     	edt.cnt = 0;
@@ -89,7 +89,7 @@ public class TestJapanese {
 
 		edt.out += edt.buf;
 
-		System.out.println("*" + edt.out + "*");
+		//System.out.println("*" + edt.out + "*");
 
 		// 伏字にした英語を戻す
 		clsLeave.japanese = edt.out;
@@ -97,12 +97,12 @@ public class TestJapanese {
 
 
 		// 半角を全角に
-    	System.out.println("記号変換前：" + edt.out);
+    	//System.out.println("記号変換前：" + edt.out);
     	String str = toZenkaku(edt.out);
 
 
     	//a,"atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
-    	System.out.println("渡す前：" + str);
+    	//System.out.println("渡す前：" + str);
     	// とりま５文字未満の時はひらがなのまま出力（変な漢字のとき、後ろの分がないと意味を予測できないため）
     	if(str.length() < 5) {
     		return str + " (" + in + ")";
@@ -291,7 +291,7 @@ public class TestJapanese {
     	}
 
 
-		System.out.println(wrk);
+		//System.out.println(wrk);
 
     	leave.englishes = english;
     	leave.japanese = wrk;

@@ -57,8 +57,7 @@ public class TestGinput {
 		} else if(isURL(str) || isEmail(str)) {
 			return "URL:" + str;
 		}
-
-
+		
 		return hJapanese.convert(str);
 
 	}

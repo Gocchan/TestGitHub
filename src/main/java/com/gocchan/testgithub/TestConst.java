@@ -205,6 +205,8 @@ public class TestConst {
 	    }
     };
 
+    public static final Character[] NOUON = new Character[] {'R','E','Q','T','W'};
+
 	public static final HashMap<String, String> G_DICTIONARY = new HashMap<String, String>() {
 
         {put("お初サンコン", "お初さんこん");}

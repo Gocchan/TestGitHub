@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Map.Entry;
 
 //import com.fasterxml.jackson.databind.JsonNode;
 //import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,9 +19,9 @@ public class TestGoogleAPI {
 
     	// 送信するかな文字が53字を超えるとエラー
     	if(str.length() > 53) {
-    		return getGoogleKanaLong(str);
+    		return changeDictionary(getGoogleKanaLong(str));
     	}
-    	return getGoogleKana(str);
+    	return changeDictionary(getGoogleKana(str));
     }
 
     private String getGoogleKanaLong(String str) {
@@ -94,7 +95,7 @@ public class TestGoogleAPI {
 
     			if(out.length() > 0){
     				// 空じゃなければ（エラー時＆文字数オーバー時は空となる）
-    				return out.toString();
+    				return out;
 
     			}
     		}
@@ -105,6 +106,15 @@ public class TestGoogleAPI {
 		return out;
     }
 
+    private String changeDictionary(String str) {
+
+    	String out = str;
+		for(Entry<String, String> e : TestConst.G_DICTIONARY.entrySet()) {
+
+			out = out.replaceAll(e.getKey(), e.getValue());
+		}
+		return out;
+    }
     private String sumGoogleString(String buf, String now) {
 
     	// 末尾から 10 戻ったところから5文字をキーとする

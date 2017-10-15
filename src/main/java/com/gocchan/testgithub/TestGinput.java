@@ -59,7 +59,7 @@ public class TestGinput {
 		}
 
 
-		return hJapanese.toKana(str);
+		return hJapanese.convert(str);
 
 	}
 

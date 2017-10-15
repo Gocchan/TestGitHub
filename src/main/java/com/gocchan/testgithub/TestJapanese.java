@@ -16,7 +16,7 @@ public class TestJapanese {
 		this.hGoogle = hGithub.getGoogleHandler();
 	}
 
-    public String toKana(String in) {
+    public String convert(String in) {
 
     	// "atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
 
@@ -89,12 +89,12 @@ public class TestJapanese {
 
 		edt.out += edt.buf;
 
-		//System.out.println("*" + edt.out + "*");
-
 		// 伏字にした英語を戻す
 		clsLeave.japanese = edt.out;
 		edt.out = decodeLeave(clsLeave);
 
+
+		System.out.println("*" + edt.out + "*");
 
 		// 半角を全角に
     	//System.out.println("記号変換前：" + edt.out);
@@ -147,6 +147,7 @@ public class TestJapanese {
     	switch(cnt) {
 			case 3:
 				if(buf.charAt(0) == buf.charAt(1)
+						&& buf.charAt(2) == 'y'
 						&& buf.charAt(0) != buf.charAt(2)) {
 					return true;
 				} else {
@@ -204,6 +205,8 @@ public class TestJapanese {
 			if(edt.cnt == i) {
 				// 小さい　っ　対応
 				if((edt.cnt == 3 || edt.cnt == 2) && isXtu(edt.cnt, edt.buf)) {
+
+			    	System.out.println("キキタ！！！cnt:" + edt.cnt + ", buf:" + edt.buf);
 					edt.out += "っ";
 					edt.cnt = edt.cnt-1;
 					edt.buf = edt.buf.substring(1);
@@ -211,7 +214,7 @@ public class TestJapanese {
 				} else {
 
 
-
+					// ｗｗｗきゃ
 					String romaji = getRomaji(edt.cnt, edt.buf, now);
 					if(!romaji.isEmpty()) {
 						edt.out += romaji;

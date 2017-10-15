@@ -240,7 +240,7 @@ public class TestJapanese {
     }
     private String decodeLeave(leaveGoogle leave) {
 
-    	String regex = "★";
+    	String regex = "〓";
     	Pattern p = Pattern.compile(regex);
     	//Matcher m = p.matcher(leave.japanese);
 
@@ -282,7 +282,7 @@ public class TestJapanese {
     		if(m.start() > loc) {
     			wrk += in.substring(loc, m.start());
     		}
-    		wrk += "★";
+    		wrk += "〓";
     		loc = m.end();
 
     		english.add(in.substring(m.start()+1, m.end()-1));

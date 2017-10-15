@@ -64,7 +64,8 @@ public class TestConst {
 	    	put("ts", Arrays.asList("つぁ", "つぃ", "つ", "つぇ", "つぉ"));
 	    	put("th", Arrays.asList("てゃ", "てぃ", "てゅ", "てぇ", "てょ"));
 	    	put("dh", Arrays.asList("でゃ", "でぃ", "でゅ", "でぇ", "でょ"));
-	    	put("xk", Arrays.asList("ヵ", "", "", "ヶ", ""));
+	    	//put("xk", Arrays.asList("ヵ", "", "", "ヶ", ""));
+	    	put("xk", Arrays.asList("ゕ", "", "", "ゖ", ""));
 	    	put("xt", Arrays.asList("", "", "っ", "", ""));
 	    	put("xy", Arrays.asList("ゃ", "ぃ", "ゅ", "ぇ", "ょ"));
 	    	put("xw", Arrays.asList("ゎ", "", "", "", ""));
@@ -81,7 +82,8 @@ public class TestConst {
 	    	put("dw", Arrays.asList("どぁ", "どぃ", "どぅ", "どぇ", "どぉ"));
 	    	put("hw", Arrays.asList("ふぁ", "ふぃ", "", "ふぇ", "ふぉ"));
 	    	put("fy", Arrays.asList("ふゃ", "ふぃ", "ふゅ", "ふぇ", "ふょ"));
-	    	put("lk", Arrays.asList("ヵ", "", "", "ヶ", ""));
+	    	//put("lk", Arrays.asList("ヵ", "", "", "ヶ", ""));
+	    	put("lk", Arrays.asList("ゕ", "", "", "ゖ", ""));
 	    	put("lt", Arrays.asList("", "", "っ", "", ""));
 	    	put("ly", Arrays.asList("ゃ", "ぃ", "ゅ", "ぇ", "ょ"));
 	    	put("lw", Arrays.asList("ゎ", "", "", "", ""));

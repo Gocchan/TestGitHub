@@ -6,12 +6,10 @@ import java.util.regex.Pattern;
 
 public class TestGinput {
 
-	final private TestGithub hGithub;
 	final private TestJapanese hJapanese;
 
 	public TestGinput(final TestGithub hGithub){
 
-		this.hGithub = hGithub;
 		this.hJapanese = hGithub.getJapaneseHandler();
 	}
 
@@ -57,7 +55,7 @@ public class TestGinput {
 		} else if(isURL(str) || isEmail(str)) {
 			return "URL:" + str;
 		}
-		
+
 		return hJapanese.convert(str);
 
 	}

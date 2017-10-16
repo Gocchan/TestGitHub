@@ -8,12 +8,10 @@ import java.util.regex.Pattern;
 
 public class TestJapanese {
 
-	final private TestGithub hGithub;
 	final private TestGoogleAPI hGoogle;
 
 	public TestJapanese(final TestGithub hGithub){
 
-		this.hGithub = hGithub;
 		this.hGoogle = hGithub.getGoogleHandler();
 	}
 
@@ -317,16 +315,16 @@ public class TestJapanese {
     	for(int i=0; i < str.length(); i++) {
 
     		char c = str.charAt(i);
-    		int cc = (int)c;
 
-    		//
-    		if(cc >= Integer.decode("0x3041") && cc <= Integer.decode("0x3096")) {
+    		// http://yasu0120.blog130.fc2.com/blog-entry-10.html
+    		//int cc = (int)c;
+    		//if(cc >= Integer.decode("0x3041") && cc <= Integer.decode("0x3096")) {
+    		if(c >= '\u3041' && c <= '\u3096') {
     			// あ～ゖ
     			hiragana++;
 
-    		} else if((cc >= Integer.decode("0x0061") && cc <= Integer.decode("0x0076"))
-    				|| (cc >= Integer.decode("0x0078") && cc <= Integer.decode("0x007A"))
-    				|| Arrays.asList(TestConst.NOUON).contains(c)) {
+    		} else if((c >= '\u0061' && c <= '\u0076') || (c >= '\u0078' && c <= '\u007A'
+    				|| Arrays.asList(TestConst.NOUON).contains(c))) {
 
     			// a～v or x～z or 濃音
     			// wは対象外とする
@@ -334,14 +332,13 @@ public class TestJapanese {
     		}
     	}
 
-    	// あと連続するｗｗｗをどうするか・・・
 
     	if(hiragana < 5 && alphabet != 0) {
     		System.out.println("韓国語表示で！alphabet:" + alphabet + ", hiragana:" + hiragana);
-    	} else if(hiragana > alphabet) {
-    		System.out.println("日本語です！alphabet:" + alphabet + ", hiragana:" + hiragana);
+    	} else if(hiragana < alphabet) {
+    		System.out.println("韓国語表示で！alphabet:" + alphabet + ", hiragana:" + hiragana);
     	} else {
-    		System.out.println("まだ分かりません・・・・alphabet:" + alphabet + ", hiragana:" + hiragana);
+    		System.out.println("日本語です！alphabet:" + alphabet + ", hiragana:" + hiragana);
     	}
     }
 

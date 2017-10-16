@@ -21,7 +21,8 @@ public class TestJapanese {
 
     	// 英語を伏字に
     	leaveGoogle clsLeave = new leaveGoogle();
-    	clsLeave = encodeLeave(in);
+    	//clsLeave = encodeLeave(in);
+    	clsLeave = encodeLeave2(in);
 
 		String now;
 		//System.out.println("List:" + clsLeave.englishes.toString());
@@ -91,27 +92,25 @@ public class TestJapanese {
 
 		isNihongo(edt.out);
 
-
-
-		// 伏字にした英語を戻す
-		clsLeave.japanese = edt.out;
-		edt.out = decodeLeave(clsLeave);
-
-
-		System.out.println("*" + edt.out + "*");
-
 		// 半角を全角に
-    	//System.out.println("記号変換前：" + edt.out);
-    	String str = toZenkaku(edt.out);
+    	System.out.println("記号変換前：" + edt.out);
+		edt.out = toZenkaku(edt.out);
 
 
     	//a,"atsushi"sann "AG\OTO"ttehitoha douitujinnbutudesuka?
     	//System.out.println("渡す前：" + str);
     	// とりま５文字未満の時はひらがなのまま出力（変な漢字のとき、後ろの分がないと意味を予測できないため）
-    	if(str.length() < 5) {
-    		return str + " (" + in + ")";
+    	if(edt.out.length() < 5) {
+    		clsLeave.japanese = edt.out;
+    		edt.out = decodeLeave2(clsLeave);	// 伏字にした英語を戻す
+    		return edt.out + " (" + in + ")";
+
     	} else {
-    		return hGoogle.convert(str) + " (" + in + ")";
+
+    		clsLeave.japanese = hGoogle.convert(edt.out);
+    		edt.out = decodeLeave2(clsLeave);	// 伏字にした英語を戻す
+
+    		return edt.out + " (" + in + ")";
     	}
     }
 
@@ -242,6 +241,7 @@ public class TestJapanese {
 		edt.buf = "";
 		return edt;
     }
+
     private String decodeLeave(leaveGoogle leave) {
 
     	String regex = "〓";
@@ -258,6 +258,23 @@ public class TestJapanese {
     		}
     	}
 
+    	return wrk;
+    }
+
+    private String decodeLeave2(leaveGoogle leave) {
+
+    	int cnt = 0;
+    	String wrk = "";
+
+    	for(int i=0; i < leave.japanese.length(); i++) {
+    		final char c = leave.japanese.charAt(i);
+    		if(c == '〓') {
+    			wrk += leave.englishes.get(cnt);
+    			cnt++;
+    		} else {
+    			wrk += c;
+    		}
+    	}
     	return wrk;
     }
 
@@ -307,6 +324,41 @@ public class TestJapanese {
 		return leave;
     }
 
+    private leaveGoogle encodeLeave2(String in) {
+
+    	List<String> english = new ArrayList<String>();
+    	leaveGoogle leave = new leaveGoogle();
+
+    	String wrk = "";
+    	String naka = "";
+    	boolean flgNaka = false;
+
+    	for(int i=0; i < in.length(); i++) {
+
+    		final char c = in.charAt(i);
+    		if(c == '#') {
+				flgNaka = !flgNaka;
+				if(flgNaka) {
+					wrk += "〓";
+				} else {
+					english.add(naka);
+					naka = "";
+				}
+    		} else {
+				if(flgNaka) {
+					naka += c;
+				} else {
+					wrk += c;
+				}
+    		}
+    	}
+
+    	leave.englishes = english;
+    	leave.japanese = wrk;
+
+		return leave;
+    }
+
     private void isNihongo(String str) {
 
     	int hiragana = 0;
@@ -331,7 +383,6 @@ public class TestJapanese {
     			alphabet++;
     		}
     	}
-
 
     	if(hiragana < 5 && alphabet != 0) {
     		System.out.println("韓国語表示で！alphabet:" + alphabet + ", hiragana:" + hiragana);

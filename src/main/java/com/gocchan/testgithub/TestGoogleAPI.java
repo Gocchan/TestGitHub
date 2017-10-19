@@ -1,5 +1,7 @@
 package com.gocchan.testgithub;
 
+import static com.gocchan.testgithub.TestConst.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,9 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map.Entry;
-
-//import com.fasterxml.jackson.databind.JsonNode;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TestGoogleAPI {
 
@@ -109,7 +108,7 @@ public class TestGoogleAPI {
     private String changeDictionary(String str) {
 
     	String out = str;
-		for(Entry<String, String> e : TestConst.G_DICTIONARY.entrySet()) {
+		for(Entry<String, String> e : G_DICTIONARY.entrySet()) {
 
 			out = out.replaceAll(e.getKey(), e.getValue());
 		}

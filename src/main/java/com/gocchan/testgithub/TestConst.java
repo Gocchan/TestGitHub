@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class TestConst {
 
+	// privateコンストラクタでインスタンス生成を抑止
+	private TestConst(){}
 
     private static final Map<String, List<String>> ROMAN_0 = new HashMap<String, List<String>>() {
     	{

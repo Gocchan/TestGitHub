@@ -12,6 +12,7 @@ public class TestConst {
 
     private static final Map<String, List<String>> ROMAN_0 = new HashMap<String, List<String>>() {
     	// TEST
+
     	{
     		put("", Arrays.asList("あ", "い", "う", "え", "お"));
     	}

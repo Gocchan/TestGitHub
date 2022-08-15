@@ -1,5 +1,6 @@
 name: TestGithub
 version: 0.0.1
-main: com.gocchan.testgithub.TestGithub
+description: マイクラプラグインのテスト
 author: A_GOTO
 website: www.gocchan.com
+main: com.gocchan.testgithub.TestGithub
